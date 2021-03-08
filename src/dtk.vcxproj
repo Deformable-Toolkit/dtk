@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{AB6DA522-46CD-4A19-B216-B4FAC4EC8B30}</ProjectGuid>
+    <RootNamespace>dtk</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>16.0.29511.113</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <IncludePath>E:\lab\igst_vascular_simulation\cai_lib\addin\dtk\version14\boost_1_68_0_x64\include;E:\lab\igst_vascular_simulation\cai_lib\cgal_lib_exe_install_64_413\build_install\releasevs2015\include;E:\lab\igst_vascular_simulation\cai_lib\cgal_lib_exe_install_64_413\auxiliary\gmp\include;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\lab\igst_vascular_simulation\cai_lib\cgal_lib_exe_install_64_413\auxiliary\gmp\lib;E:\lab\igst_vascular_simulation\cai_lib\addin\dtk\version14\boost_1_68_0_x64\lib;E:\lab\igst_vascular_simulation\cai_lib\cgal_lib_exe_install_64_413\build_install\releasevs2015\lib;$(LibraryPath)</LibraryPath>
+    <ReferencePath>E:\lab\igst_vascular_simulation\cai_lib\addin\dtk\version14\boost_1_68_0\include;$(ReferencePath)</ReferencePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>E:\lab\igst_vascular_simulation\cai_lib\addin\dtk\version14\boost_1_68_0_x64\include;E:\lab\igst_vascular_simulation\cai_lib\cgal_lib_exe_install_64_413\build_install\releasevs2015\include;E:\lab\igst_vascular_simulation\cai_lib\cgal_lib_exe_install_64_413\auxiliary\gmp\include;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\lab\igst_vascular_simulation\cai_lib\cgal_lib_exe_install_64_413\auxiliary\gmp\lib;E:\lab\igst_vascular_simulation\cai_lib\addin\dtk\version14\boost_1_68_0_x64\lib;E:\lab\igst_vascular_simulation\cai_lib\cgal_lib_exe_install_64_413\build_install\releasevs2015\lib;$(LibraryPath)</LibraryPath>
+    <ReferencePath>E:\lab\igst_vascular_simulation\cai_lib\addin\dtk\version14\boost_1_68_0\include;$(ReferencePath)</ReferencePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(BOOST_HOME);$(BOOST_HOME)/boost/tr1;../include;$(GMP_HOME)\include;$(CGAL_DIR)/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(BOOST_HOME);$(BOOST_HOME)/boost/tr1;../include;$(GMP_HOME)\include;$(CGAL_DIR)/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>E:\lab\igst_vascular_simulation\cai_lib\cgal_lib_exe_install_64_413\build_install\releasevs2015\include;E:\lab\igst_vascular_simulation\cai_lib\cgal_lib_exe_install_64_413\auxiliary\gmp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>E:\lab\igst_vascular_simulation\cai_lib\addin\dtk\version14\boost_1_68_0_x64\lib;E:\lab\igst_vascular_simulation\cai_lib\cgal_lib_exe_install_64_413\auxiliary\gmp\lib;E:\lab\igst_vascular_simulation\cai_lib\cgal_lib_exe_install_64_413\build_install\releasevs2015\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>CGAL_Core-vc140-mt-4.14.3.lib;CGAL_ImageIO-vc140-mt-4.14.3.lib;CGAL_Qt5-vc140-mt-4.14.3.lib;CGAL-vc140-mt-4.14.3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>E:\lab\igst_vascular_simulation\cai_lib\cgal_lib_exe_install_64_413\build_install\releasevs2015\include;E:\lab\igst_vascular_simulation\cai_lib\cgal_lib_exe_install_64_413\auxiliary\gmp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>E:\lab\igst_vascular_simulation\cai_lib\addin\dtk\version14\boost_1_68_0_x64\lib;E:\lab\igst_vascular_simulation\cai_lib\cgal_lib_exe_install_64_413\auxiliary\gmp\lib;E:\lab\igst_vascular_simulation\cai_lib\cgal_lib_exe_install_64_413\build_install\releasevs2015\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>CGAL_Core-vc140-mt-4.14.3.lib;CGAL_ImageIO-vc140-mt-4.14.3.lib;CGAL_Qt5-vc140-mt-4.14.3.lib;CGAL-vc140-mt-4.14.3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="dtk.cpp" />
+    <ClCompile Include="dtkAssert.cpp" />
+    <ClCompile Include="dtkCollisionDetectBasic.cpp" />
+    <ClCompile Include="dtkCollisionDetectHierarchy.cpp" />
+    <ClCompile Include="dtkCollisionDetectHierarchyKDOPS.cpp" />
+    <ClCompile Include="dtkCollisionDetectNode.cpp" />
+    <ClCompile Include="dtkCollisionDetectNodeKDOPS.cpp" />
+    <ClCompile Include="dtkCollisionDetectPrimitive.cpp" />
+    <ClCompile Include="dtkCollisionDetectStage.cpp" />
+    <ClCompile Include="dtkErrorManager.cpp" />
+    <ClCompile Include="dtkGraphicsKernel.cpp" />
+    <ClCompile Include="dtkIntersectTest.cpp" />
+    <ClCompile Include="dtkPhysCore.cpp" />
+    <ClCompile Include="dtkPhysKnotPlanner.cpp" />
+    <ClCompile Include="dtkPhysMassPoint.cpp" />
+    <ClCompile Include="dtkPhysMassSpring.cpp" />
+    <ClCompile Include="dtkPhysMassSpringCollisionResponse.cpp" />
+    <ClCompile Include="dtkPhysMassSpringThread.cpp" />
+    <ClCompile Include="dtkPhysMassSpringThreadCollisionResponse.cpp" />
+    <ClCompile Include="dtkPhysParticle.cpp" />
+    <ClCompile Include="dtkPhysParticleSystem.cpp" />
+    <ClCompile Include="dtkPhysSpring.cpp" />
+    <ClCompile Include="dtkPhysTetraMassSpring.cpp" />
+    <ClCompile Include="dtkPointsReader.cpp" />
+    <ClCompile Include="dtkPointsWriter.cpp" />
+    <ClCompile Include="dtkSign.cpp" />
+    <ClCompile Include="dtkStaticMeshEliminator.cpp" />
+    <ClCompile Include="dtkStaticTetraMesh.cpp" />
+    <ClCompile Include="dtkStaticTetraMeshReader.cpp" />
+    <ClCompile Include="dtkStaticTetraMeshWriter.cpp" />
+    <ClCompile Include="dtkStaticTriangleMesh.cpp" />
+    <ClCompile Include="dtkStaticTriangleMeshReader.cpp" />
+    <ClCompile Include="dtkStaticTriangleMeshWriter.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="dtk.h" />
+    <ClInclude Include="dtkArray.h" />
+    <ClInclude Include="dtkAssert.h" />
+    <ClInclude Include="dtkCollisionDetectBasic.h" />
+    <ClInclude Include="dtkCollisionDetectHierarchy.h" />
+    <ClInclude Include="dtkCollisionDetectHierarchyKDOPS.h" />
+    <ClInclude Include="dtkCollisionDetectNode.h" />
+    <ClInclude Include="dtkCollisionDetectNodeKDOPS.h" />
+    <ClInclude Include="dtkCollisionDetectPrimitive.h" />
+    <ClInclude Include="dtkCollisionDetectStage.h" />
+    <ClInclude Include="dtkConfig.h" />
+    <ClInclude Include="dtkError.h" />
+    <ClInclude Include="dtkErrorManager.h" />
+    <ClInclude Include="dtkExports.h" />
+    <ClInclude Include="dtkGraphics.h" />
+    <ClInclude Include="dtkGraphicsKernel.h" />
+    <ClInclude Include="dtkGraphicsTools.h" />
+    <ClInclude Include="dtkIDTypes.h" />
+    <ClInclude Include="dtkImports.h" />
+    <ClInclude Include="dtkInit.h" />
+    <ClInclude Include="dtkIntersectTest.h" />
+    <ClInclude Include="dtkIO.h" />
+    <ClInclude Include="dtkMatrix.h" />
+    <ClInclude Include="dtkMatrixAlgorithm.h" />
+    <ClInclude Include="dtkMatrixOP.h" />
+    <ClInclude Include="dtkPhysCore.h" />
+    <ClInclude Include="dtkPhysKnotPlanner.h" />
+    <ClInclude Include="dtkPhysMassPoint.h" />
+    <ClInclude Include="dtkPhysMassSpring.h" />
+    <ClInclude Include="dtkPhysMassSpringCollisionResponse.h" />
+    <ClInclude Include="dtkPhysMassSpringThread.h" />
+    <ClInclude Include="dtkPhysMassSpringThreadCollisionResponse.h" />
+    <ClInclude Include="dtkPhysParticle.h" />
+    <ClInclude Include="dtkPhysParticleSystem.h" />
+    <ClInclude Include="dtkPhysSpring.h" />
+    <ClInclude Include="dtkPhysTetraMassSpring.h" />
+    <ClInclude Include="dtkPoints.h" />
+    <ClInclude Include="dtkPointsReader.h" />
+    <ClInclude Include="dtkPointsVector.h" />
+    <ClInclude Include="dtkPointsWriter.h" />
+    <ClInclude Include="dtkProperty.h" />
+    <ClInclude Include="dtkRandom.h" />
+    <ClInclude Include="dtkSign.h" />
+    <ClInclude Include="dtkStaticMeshEliminator.h" />
+    <ClInclude Include="dtkStaticTetraMesh.h" />
+    <ClInclude Include="dtkStaticTetraMeshReader.h" />
+    <ClInclude Include="dtkStaticTetraMeshWriter.h" />
+    <ClInclude Include="dtkStaticTriangleMesh.h" />
+    <ClInclude Include="dtkStaticTriangleMeshReader.h" />
+    <ClInclude Include="dtkStaticTriangleMeshWriter.h" />
+    <ClInclude Include="dtkTime.h" />
+    <ClInclude Include="dtkTx.h" />
+    <ClInclude Include="dtkTxIO.h" />
+    <ClInclude Include="dtkTxOP.h" />
+    <ClInclude Include="dtkUtility.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
