@@ -505,7 +505,7 @@ namespace dtk
 		// create threads
 		for( dtkID i = 0; i < mNumberOfThreads; i++ )
 		{
-			mThreadGroup->add_thread( new thread( dtkphyscore_mt_update, i, this
+			mThreadGroup->add_thread( new boost::thread( dtkphyscore_mt_update, i, this
 				//mNumberOfThreads, &(mAllocator[i]),
 				//mEnterBarrier, mExitBarrier, &mLive, 
 				//&mMassSprings, &mCollisionDetectHierarchies, &mCollisionDetectResponseSets,

@@ -207,7 +207,7 @@ namespace dtk
         mExitBarrier = new barrier( mNumberOfThreads + 1 );
         for( dtkID i = 0; i < mNumberOfThreads; i++ )
         {
-            mThreadGroup->add_thread( new thread( thread_update, i, mNumberOfThreads, 
+            mThreadGroup->add_thread( new boost::thread( thread_update, i, mNumberOfThreads, 
                         mEnterBarrier, mExitBarrier, &mLive, &mHierarchies ) );
         }
     }
