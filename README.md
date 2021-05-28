@@ -41,7 +41,7 @@ Add the path to the Boost dlls (C:\dev\libboost_1_71_0\lib64-msvc-XX.Y) files to
 &emsp;&emsp;First，configuarte with command:
 
 ```bash
-$ cmake -S "DTK_DIR" -D "DESTINATION_STATIC_DIR" -D CMAKE_INSTALL_PREFIX="PATH TO INSTALL STATIC LIBS" -G "Generates"
+$ cmake -S "DTK_DIR" -B "DESTINATION_STATIC_DIR" -D CMAKE_INSTALL_PREFIX="PATH TO INSTALL STATIC LIBS" -G "Generates"
 ```
 
 &emsp;&emsp;second, install with:
@@ -55,7 +55,7 @@ $ cmake --build "DESTINATION_STATIC_DIR" --config Release --target install
 &emsp;&emsp;First，configuarte with command:
 
 ```bash
-$ cmake -S "DTK_DIR" -D "DESTINATION_SHARED_DIR" -D BUILD_SHARED_LIBS=ON -D CMAKE_INSTALL_PREFIX="PATH TO INSTALL SHARED LIBS" -G "Generates"
+$ cmake -S "DTK_DIR" -B "DESTINATION_SHARED_DIR" -D BUILD_SHARED_LIBS=ON -D CMAKE_INSTALL_PREFIX="PATH TO INSTALL SHARED LIBS" -G "Generates"
 ```
 
 &emsp;&emsp;second, install with:
