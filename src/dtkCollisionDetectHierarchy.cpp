@@ -52,7 +52,7 @@ namespace dtk
             if( !(*running) )
                 break;
 
-            for( dtkID i = id; i < primitives->size(); i = i + numberOfThreads )
+            for( dtkID i = id; i < (dtkID)primitives->size(); i = i + numberOfThreads )
             {
                 (*primitives)[i]->Update();
             }
@@ -129,7 +129,7 @@ namespace dtk
 
 	void dtkCollisionDetectHierarchy::AddPrimitive( Primitive* primitive )
 	{
-		primitive->mLocalID = mPrimitives.size();
+		primitive->mLocalID = (int)mPrimitives.size();
 		mPrimitives.push_back( primitive );
 	}
 

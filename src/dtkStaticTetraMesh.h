@@ -64,7 +64,7 @@ namespace dtk
 
         static bool IsValidTetra(dtkID4 verts, dtkPoints::Ptr pts);
         dtkID4 GetTetraById(int id);
-        int GetTetraNum() { return mEC.size(); }
+        int GetTetraNum() { return (int)mEC.size(); }
 
         bool GetSurface(dtkStaticTriangleMesh::Ptr&);
 

@@ -30,7 +30,7 @@ Add the path to the Boost dlls (C:\dev\libboost_1_71_0\lib64-msvc-XX.Y) files to
 
 ## How to build
 
-&emsp;&emsp;dtk is build by CMake. so you can build easily.
+&emsp;&emsp;Dtk is build by CMake. so you can build easily.
 
 ### build with CMake GUI
 

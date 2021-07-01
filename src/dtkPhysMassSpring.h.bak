@@ -11,7 +11,8 @@
 #include "dtkStaticTriangleMesh.h"
 #include <vector>
 #include <map>
-#include "dtkPoints.h"
+#include <dtkPoints.h>
+#include <dtkPoints.h>
 
 using namespace std; 
 
@@ -43,7 +44,7 @@ namespace dtk
 		dtkID AddMassPoint(dtkID id, const double& mass = 1.0, const dtkT3<double>& vel = dtkT3<double>(0,0,0), double pointDamp = 1.0, double pointResistence = 2.5, dtkDouble3 defaultGravityAccel = dtkDouble3( 0,0,0 ) );
 
 		dtkPhysSpring* GetSpring(dtkID id){ return mSprings[id]; };
-		dtkID GetNumberOfSprings() { return (dtkID)mSprings.size(); }
+		dtkID GetNumberOfSprings() { return mSprings.size(); }
 		dtkID AddSpring(dtkID p1, dtkID p2, const double& stiff = 0, const double& damp = 0);
 		void DeleteSpring( dtkID p1, dtkID p2 );
 

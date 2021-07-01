@@ -9,10 +9,13 @@
 #include "dtkConfig.h"
 #include "dtkIDTypes.h"
 #include "dtkPoints.h"
+#include <cstddef>
+#include <vector>
 
 namespace dtk
 {
 	//This class is implemented following "Compact Array-Based Mesh Data Structures"
+
 	class dtkStaticTriangleMesh: public boost::noncopyable
 	{
 	public:
