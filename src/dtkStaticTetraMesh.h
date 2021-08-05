@@ -291,7 +291,7 @@ namespace dtk
 			ahf2 = EncodeAHF(cell2, idx2, anchor2);
 		}
 
-		const static dtkID	EA2V[4][3];
+		const static dtkID	EA2V[4][3];  //四边形里的每个三角形
 		const static dtkID	EAdj[4][3];
 
 	private:

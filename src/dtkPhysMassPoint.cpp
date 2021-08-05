@@ -43,7 +43,7 @@ namespace dtk
 	{
 		// mActive represent the mass point's accel is zero, points don't leave in this iteration.
 		dtkT3<double> p;
-		if(!mActive)
+		if(!mActive) //无速度， 提前返回，实现固定点
 		{
 		    switch(method)
 		    {

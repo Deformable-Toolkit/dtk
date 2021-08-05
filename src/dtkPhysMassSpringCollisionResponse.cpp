@@ -59,11 +59,11 @@ namespace dtk
 			if( type1 == dtkCollisionDetectPrimitive::SEGMENT )
 			{
 				if( type2 == dtkCollisionDetectPrimitive::SEGMENT )
-				{
+				{//线段与线段
 					responseType = SEGMENT_SEGMENT;
 				}
 				else if( type2 == dtkCollisionDetectPrimitive::TRIANGLE )
-				{
+				{//线段与三角形
                     assert(false);// only tri - seg pairs are possible
 				}
 				else
@@ -72,11 +72,11 @@ namespace dtk
 			else if( type1 == dtkCollisionDetectPrimitive::TRIANGLE )
 			{
 				if( type2 == dtkCollisionDetectPrimitive::SEGMENT )
-				{
+				{//三角形与段
 					responseType = TRIANGLE_SEGMENT;
 				}
 				else if( type2 == dtkCollisionDetectPrimitive::TRIANGLE )
-				{
+				{//三角形与三角形
 					responseType = TRIANGLE_TRIANGLE;
 				}
 				else
@@ -103,10 +103,10 @@ namespace dtk
 					dtkPhysMassPoint* massPoint22 = mMassSprings[pri_2->mMajorID]->GetMassPoint( pri_2->mDetailIDs[1] );
                     
 					// try 
-					dtkDouble3 oriPos11 = massPoint11->mPosBuffers[0];
-					dtkDouble3 oriPos12 = massPoint12->mPosBuffers[0];
-					dtkDouble3 oriPos21 = massPoint21->mPosBuffers[0];
-					dtkDouble3 oriPos22 = massPoint22->mPosBuffers[0];
+					dtkDouble3 oriPos11 = massPoint11->GetPosBuffer()[0];
+					dtkDouble3 oriPos12 = massPoint12->GetPosBuffer()[0];
+					dtkDouble3 oriPos21 = massPoint21->GetPosBuffer()[0];
+					dtkDouble3 oriPos22 = massPoint22->GetPosBuffer()[0];
 
 					// compute vertical distance of two segments.
 					double penetrate1 = dot( oriPos21 - oriPos11, normalize(cross( oriPos12 - oriPos11, oriPos22 - oriPos21 )) );
@@ -130,7 +130,7 @@ namespace dtk
 					}
 					dtkDouble3 impulse( normal[0], normal[1], normal[2] );
 					
-					// ??? 
+					// 阻尼
 					impulse = impulse * ( stiffness * timeslice ); 
 
 					// try vel impulse

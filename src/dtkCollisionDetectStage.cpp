@@ -118,9 +118,17 @@ namespace dtk
     }
         
     void dtkCollisionDetectStage::_Update_mt()
-    {
+    {   
         for( dtkID i = 0; i < GetNumberOfHierarchies(); i++ )
             mHierarchies[i]->Update();
+
+        // multi_thread ?
+        /*
+
+        mEnterBarrier->wait();
+        mExitBarrier->wait();
+        */
+
     }
         
     void dtkCollisionDetectStage::BoxIntersectCallBack( const Box& a, const Box& b )
@@ -140,12 +148,12 @@ namespace dtk
             vector<IntersectResult::Ptr>& intersectResults,
             bool self, bool ignore_extend )
     {
-        if( CDBasic::DoIntersect( node_1, node_2 ) )
+        if( CDBasic::DoIntersect( node_1, node_2 ) )//粗相交检测
         {
             if( node_1->IsLeaf() )
             {
                 if( node_2->IsLeaf() )
-                {
+                {//叶子与叶子相交测试
                     IntersectResult::Ptr result;
                     for( dtkID i = 0; i < node_1->GetNumOfPrimitives(); i++ )
                     {
@@ -159,7 +167,7 @@ namespace dtk
                     }
                 }
                 else
-                {
+                {//叶子与非叶结点相交测试
                     for( dtkID i = 0; i < node_2->GetNumOfChildren(); i++ )
                         TraverseHierarchy( node_1, node_2->GetChild(i), intersectResults, self, ignore_extend );
                 }
@@ -167,12 +175,12 @@ namespace dtk
             else
             {
                 if( node_2->IsLeaf() || node_1->GetLevel() > node_2->GetLevel() )
-                {
+                {//非叶子结点与叶结点（或两个非叶结点相交测试）相交测试
                     for( dtkID i = 0; i < node_1->GetNumOfChildren(); i++ )
                         TraverseHierarchy( node_1->GetChild(i), node_2, intersectResults, self, ignore_extend );
                 }
                 else
-                {
+                {//两个非叶结点相交测试
                     for( dtkID i = 0; i < node_2->GetNumOfChildren(); i++ )
                         TraverseHierarchy( node_1, node_2->GetChild(i), intersectResults, self, ignore_extend );
                 }

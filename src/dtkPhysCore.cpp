@@ -701,6 +701,8 @@ namespace dtk
 		for( dtkID i = 0; i < mAdherePointSets.size(); i++ )
 		{
 			AdherePointSet& adherePointSet = mAdherePointSets[i];
+
+			//重心
 			GK::Point3 p_tri = barycenter( adherePointSet.dominate_pts->GetPoint( adherePointSet.dominate_tri[0] ), adherePointSet.uvw[0], 
 				adherePointSet.dominate_pts->GetPoint( adherePointSet.dominate_tri[1] ), adherePointSet.uvw[1], 
 				adherePointSet.dominate_pts->GetPoint( adherePointSet.dominate_tri[2] ), adherePointSet.uvw[2] );
@@ -710,6 +712,7 @@ namespace dtk
 			dtkPhysMassSpring::Ptr dominate_ms = mMassSprings[adherePointSet.dominate_ID];
 			dtkPhysMassSpring::Ptr slave_ms = mMassSprings[adherePointSet.slave_ID];
 
+			//主三角形点更新
 			for( dtkID j = 0; j < 3; j++ )
 			{
 				dtkPhysMassPoint* dominate_mp = dominate_ms->GetMassPoint( adherePointSet.dominate_tri[j] );
@@ -719,6 +722,7 @@ namespace dtk
 				dominate_mp->SetVel( dominate_mp->GetVel() + dtkT3<double>(dominate_vel[0], dominate_vel[1], dominate_vel[2]) );
 			}
 			
+			//从点更新
 			dtkPhysMassPoint* slave_mp = slave_ms->GetMassPoint( adherePointSet.slave_p );
 			GK::Vector3 slave_vel = - normal * ( 1.0 - adherePointSet.slave_ratio );
 			slave_mp->SetPoint( adherePointSet.slave_pts->GetPoint( adherePointSet.slave_p ) + slave_vel );
@@ -744,12 +748,17 @@ namespace dtk
 			{
 				GK::Point3 particle = itr->second.particlesystem->GetPoint( i );
 				itr->second.pts->SetPoint( 0, particle );
+
+				//更新包围盒
 				itr->second.hierarchy_pair.second->Update();
 				vector<dtkIntersectTest::IntersectResult::Ptr> intersectResults;
+
+				//kDOPS相交测试
 				mStage->DoIntersect( itr->second.hierarchy_pair,  
 					intersectResults, false, false );
 				for( dtkID j = 0; j < intersectResults.size(); j++ )
 				{
+					//更新粒子
 					dtkIntersectTest::IntersectResult::Ptr result = intersectResults[j];
 					GK::Vector3 normal;
 					result->GetProperty( dtkIntersectTest::INTERSECT_NORMAL, normal );
@@ -922,6 +931,7 @@ namespace dtk
 		mStage->AddHierarchy( mCollisionDetectHierarchies[id] );
 		mCollisionDetectResponse->SetMassSpring( id, mMassSprings[id] );
 
+		//获取表面
 		dtkStaticTriangleMesh::Ptr surface = dtkStaticTriangleMesh::New();
 		targetMesh->GetSurface( surface );
 		mTriangleMeshes[id] = surface;

@@ -160,7 +160,7 @@ namespace dtk
         dtkPoints::Ptr pts = triMesh->GetPoints();
         const std::vector<dtkID3>& ecTable = triMesh->GetECTable();       
         Primitive* primitive = 0;
-        for( dtkID i = 0; i < ecTable.size(); i++ )
+        for( dtkID i = 0; i < ecTable.size(); i++ )  //对每个三角形
         {
             primitive = InsertTriangle( pts, ecTable[i] );
             primitive->mMajorID = majorID;
@@ -174,7 +174,7 @@ namespace dtk
 
     void dtkCollisionDetectHierarchy::InsertTetraMesh( dtkStaticTetraMesh::Ptr tetraMesh, dtkID majorID, InsertOption opt, double extend )
     {
-        tetraMesh->Rebuild();
+        tetraMesh->Rebuild(); // 
         dtkPoints::Ptr pts = tetraMesh->GetPoints();
         const std::vector<dtkID4>& ecTable = tetraMesh->GetECTable();
         std::vector<dtkID> b2fTable = tetraMesh->GetB2FTable();
@@ -201,7 +201,7 @@ namespace dtk
                         break;
                     }
                 }
-                if( setIt == tempFaceSet.end() )
+                if( setIt == tempFaceSet.end() ) //面没加入过
                 {
                     if( ( opt == INTERIOR && !findHf ) || ( opt == SURFACE && findHf ) )
                     {

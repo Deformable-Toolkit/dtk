@@ -16,7 +16,7 @@ namespace dtk
 	class dtkCollisionDetectPrimitive
 	{
     public:
-	    enum dtkCollisionDetectPrimitiveType
+	    enum dtkCollisionDetectPrimitiveType 
 	    {
 		    TRIANGLE = 0,
 		    SEGMENT,
@@ -30,6 +30,7 @@ namespace dtk
 
 		~dtkCollisionDetectPrimitive(){}
 
+        //更新质心及图元对象
         void Update();
 
 		inline void Modified()
@@ -88,31 +89,31 @@ namespace dtk
         }
 
     public:
-        Type mType;
-        std::vector< dtkID > mIDs;
-        dtkPoints::Ptr mPts;
+        Type mType;  //图元类型
+        std::vector< dtkID > mIDs; //点ID集合
+        dtkPoints::Ptr mPts; //点集
 
-        dtkID mInvert;  // represent the positive and inverse of triangle 
+        dtkID mInvert;  // represent the positive and inverse of triangle 三角形正反、内外
 
         // Custom ID
-        dtkID mMajorID; // the object id, such as liver ID
-        dtkID mMinorID; // the triangle id
-        dtkID mDetailIDs[3]; // the points of triangle id
+        dtkID mMajorID; // the object id, such as liver ID,主Id
+        dtkID mMinorID; // the triangle id,副id.
+        dtkID mDetailIDs[3]; // the points of triangle id, 三角形图元的三个点
         size_t mNumberOfPoints;
 
 		dtkID mCustomID; // for region recognization, Yuguang Yang
 
 		int mLocalID;
 
-		bool mActive;
+		bool mActive;  //图元是否激活
 
     private:
-        GK::Object mObject;
-        GK::Point3 mCentroid;
+        GK::Object mObject; //对象
+        GK::Point3 mCentroid;  //质心
 
-        bool mModified;
-        bool mIntersected;
-		double mExtend;
+        bool mModified;   //是否更改
+        bool mIntersected; //是否相交
+		double mExtend; // 是否有间隔
 	};
 
 	inline std::ostream& operator<<(std::ostream& stream, const dtkCollisionDetectPrimitive& primitive)

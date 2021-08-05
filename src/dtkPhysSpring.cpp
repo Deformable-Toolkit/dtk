@@ -32,15 +32,22 @@ namespace dtk
 
 	
 	bool dtkPhysSpring::Update(double timeslice, ItrMethod method, dtkID iteration, bool limitDeformation)
-	{
+	{   
+        //方向向量
         dtkT3<double> vec = mVerteces[1]->GetPosition(method, iteration) - mVerteces[0]->GetPosition(method, iteration);
         dtkT3<double> dir = normalize(vec);
+        
+        //速度
         dtkT3<double> v0 = mVerteces[0]->GetVel(method, iteration);
         dtkT3<double> v1 = mVerteces[1]->GetVel(method, iteration);
+        
+        //长度
         double curLength = length(vec);
+        
+        //位置
         dtkT3<double> pos1 = mVerteces[0]->GetPosition(method, 0);
         dtkT3<double> pos2 = mVerteces[1]->GetPosition(method, 0);
-
+        
         dtkT3<double> tempVec = pos1 - pos2;
         if(limitDeformation && method == Heun && iteration == 1)
         {

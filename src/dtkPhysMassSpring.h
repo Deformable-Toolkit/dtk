@@ -51,19 +51,28 @@ namespace dtk
         void SetSpringDamp(int id, double newDamp);
         void SetPointMass(int id, double newMass);
 
+        //更新弹簧及质点状态
 		bool Update(double timeslice, ItrMethod method = Euler, bool limitDeformation = false);
+        //单线程更新
 		bool Update_s(double timeslice, ItrMethod method = Euler, bool limitDeformation = false);
 		virtual bool PreUpdate(double timeslice, ItrMethod method = Euler, dtkID iteration = 0);
         virtual bool PostUpdate(ItrMethod method = Euler, dtkID iteration = 0);
 
+        //更新迭代
 		bool Update_iteration(double timeslice, ItrMethod method = Euler, dtkID iteration = 0, bool limitDeformation = false);
+
+        //应用冲量
 		bool ApplyImpulse( double timeslice );
         
+        //更新弹簧状态，点位置，速度等
 		bool UpdateStrings(double timeslice, ItrMethod method = Euler, dtkID iteration = 0, bool limitDeformation = false);
+        //更新质点状态，点位置，速度等
 		bool UpdateMassPoints(double timeslice, ItrMethod method = Euler, dtkID iteration = 0);
 
+        //从三角网格添加质量弹簧
 		void SetTriangleMesh( dtkStaticTriangleMesh::Ptr newTriangleMesh );
 
+        //寻找周围距离小于distance的twins点
         size_t FindTwins( Ptr, double distance );
 		void AbandonTwins();
 
@@ -115,24 +124,25 @@ namespace dtk
 #endif
 
 	protected:
-		dtkPoints::Ptr mPts;
-		std::vector<dtkPhysMassPoint*> mMassPoints;
-		std::vector<dtkPhysSpring*> mSprings;
+		dtkPoints::Ptr mPts; //点集
+		std::vector<dtkPhysMassPoint*> mMassPoints; //质点集
+		std::vector<dtkPhysSpring*> mSprings; //弹簧
 
+        //边集
 		std::map< dtkID2, dtkPhysSpring* > mEdgeMap;// map from spring specified by dtkID2 to spring id
 
-        double mDefaultMass;
-        double mDefaultStiff;
-        double mDefaultDamp;
-		double mDefaultPointDamp;
-		double mDefaultPointResistence;
-		dtkDouble3 mDefaultGravityAccel;
+        double mDefaultMass; // 质量
+        double mDefaultStiff; // 弹簧刚性系数，弹性系数
+        double mDefaultDamp; // 弹簧阻尼
+		double mDefaultPointDamp; //点阻尼
+		double mDefaultPointResistence; //阻力
+		dtkDouble3 mDefaultGravityAccel;  //重力加速度
 
-		bool mUnderControl;
+		bool mUnderControl; //受控
 		
-		std::vector< dtkID > mLabels;
-		std::map< dtkID, dtkT3<double> > mTransportForces;
-		dtkT3<double> mImpulseForce;
+		std::vector< dtkID > mLabels;  // 标记点集， 可给予Transport力
+		std::map< dtkID, dtkT3<double> > mTransportForces; //
+		dtkT3<double> mImpulseForce; //瞬时力
 
 #ifdef DTK_CL
         bool mUseMultiThread;

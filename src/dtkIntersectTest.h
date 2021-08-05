@@ -72,7 +72,7 @@ namespace dtk
                 double distance, IntersectResult::Ptr& result, dtkID invert = 0 );
         static bool DoDistanceIntersect(const GK::Triangle3 &tri_1, const GK::Triangle3 &tri_2, 
                 double distance, IntersectResult::Ptr& result, dtkID invert = 0 );
-		static bool DoDistanceIntersect(const GK::Triangle3 &tri, const GK::Sphere3 &sphere, 
+	static bool DoDistanceIntersect(const GK::Triangle3 &tri, const GK::Sphere3 &sphere, 
 			double distance, IntersectResult::Ptr& result );
 
         // deprecated

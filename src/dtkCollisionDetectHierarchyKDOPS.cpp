@@ -58,14 +58,14 @@ namespace dtk
 #ifdef DTKCOLLISIONDETECTHIERARCHYKDOPS_DEBUG
         cout << "[dtkCollisionDetectHierarchyKDOPS::Update]" << endl;
 #endif
-        UpdateAllPrimitives();
+        UpdateAllPrimitives(); //更新所有图元
 
         size_t numOfNodes = mNodes.size();
         for( int i = numOfNodes - 1; i > -1; i-- )
             static_cast< dtkCollisionDetectNodeKDOPS* >( mNodes[i] )->Update();
 
         const GK::KDOP& kdop = ( ( dtkCollisionDetectNodeKDOPS* )mRoot )->GetKDOP();
-
+        
         mBox = GK::BBox3( kdop[0], kdop[2], kdop[4],
                 kdop[1], kdop[3], kdop[5] );
 

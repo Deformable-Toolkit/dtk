@@ -1262,7 +1262,14 @@ namespace dtk
         else
             return false;
         */
-        dtkAssert( false, NOT_IMPLEMENTED );
+        if( CGAL::do_intersect(seg_1, seg_2) )
+        {
+            result = IntersectResult::New();
+            return true;
+        }
+        else
+            return false;
+        //dtkAssert( false, NOT_IMPLEMENTED );
         return false;
     }
 
@@ -1332,9 +1339,9 @@ namespace dtk
 		const GK::Segment3 &seg_2)
 	{
 		// wait for CGAL 3.7
-		// return do_intersect( seg_1, seg_2 );
-		dtkAssert( false, NOT_IMPLEMENTED );
-		return false;
+		return CGAL::do_intersect( seg_1, seg_2 );
+		//dtkAssert( false, NOT_IMPLEMENTED );
+		//return false;
 	}
 
 	bool

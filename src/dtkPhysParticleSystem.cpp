@@ -36,7 +36,7 @@ namespace dtk
     bool dtkPhysParticleSystem::Update(double timeslice)
     {
 		if( mEmitting )
-		{
+		{//添加发散粒子
 			double numOfNewParticles = timeslice * mEmitRate;
 #ifdef DTK_PHYSPARTICLESYSTEM_DEBUG
 			cout << "Emitting " << numOfNewParticles << endl;
@@ -65,7 +65,7 @@ namespace dtk
 		}
 
 		for( dtkID i = 0; i < mParticles.size(); i++ )
-		{
+		{//施加力
 			mParticles[i]->AddForce( mForceDisturbance * dtkDouble3(
 				(double)rand() / (double) RAND_MAX * 2.0 - 1.0, 
 				(double)rand() / (double) RAND_MAX * 2.0 - 1.0,
@@ -76,7 +76,7 @@ namespace dtk
 		
 		dtkID emptyPosition = 0;
 		for( dtkID i = 0; i < mParticles.size(); i++ )
-		{
+		{//去除不活跃点
 			if( mParticles[i]->IsActive() )
 			{
 				mParticles[emptyPosition++] = mParticles[i];

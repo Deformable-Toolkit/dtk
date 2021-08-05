@@ -102,9 +102,9 @@ namespace dtk
     private:
         dtkPhysMassSpringCollisionResponse::Ptr                     mPriorResponse;
 
-        std::map< dtkID, dtkPhysMassSpringThread::Ptr >     mThreads;
+        std::map< dtkID, dtkPhysMassSpringThread::Ptr >     mThreads;// 线
 
-        std::map< dtkID, bool >                                     mThreadHeadInsides;
+        std::map< dtkID, bool >                                     mThreadHeadInsides; 
 
 		std::map< dtkID, int >										mNumerOfSurfacePiercedResults;
 

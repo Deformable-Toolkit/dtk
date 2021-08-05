@@ -22,17 +22,20 @@ namespace dtk
 	public:
 		virtual ~dtkCollisionDetectHierarchyKDOPS();
 
+        //构建冲突检测树
         void Build();
 
+        //重新构建冲突检测树
         void Rebuild();
 
+        //更新图元包围盒
         void Update();
 
     private:
         dtkCollisionDetectHierarchyKDOPS( size_t half_k );
 
     private:
-        size_t mHalfK;
+        size_t mHalfK;  //包围盒维度
 	};
 }
 

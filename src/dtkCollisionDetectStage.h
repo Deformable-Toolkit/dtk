@@ -35,19 +35,24 @@ namespace dtk
 	public:
 		~dtkCollisionDetectStage();
 
+        //进行相交测试
         void DoIntersect( HierarchyPair pair, std::vector<IntersectResult::Ptr>& intersectResults,
                 bool self = false, bool ignore_extend = false );
-        
+        //相交递归调用
         void TraverseHierarchy( dtkCollisionDetectNode* node_1, dtkCollisionDetectNode* node_2, 
                 std::vector<IntersectResult::Ptr>& intersectResults,
                 bool self = false, bool ignore_extend = false );
 
+        //进行自相交测试
         void SelfIntersect( dtkCollisionDetectHierarchy::Ptr hierarchy );
         
+        //所有对进行相交测试
         void AllIntersect();
 
+        //计算可能相交的层，根据层包围盒
         const std::vector< HierarchyPair >& GetPossibleIntersectPairs();
-
+        
+        //更新每一层的图元包围盒， 根据mNumberOfThreads决定使用多线程还是单线程。
         void Update();
 
 		inline size_t GetNumberOfHierarchies() const
@@ -95,17 +100,23 @@ namespace dtk
     private:
         dtkCollisionDetectStage();
         
+        //所有层
         std::vector< dtkCollisionDetectHierarchy::Ptr > mHierarchies;
 
+        //可能相交的层对
         std::vector< HierarchyPair > mPossibleIntersectPairs; // only for temp-storage
 
+        //包围盒相交回调函数
         static void BoxIntersectCallBack( const Box& a, const Box& b );
         
+        //可能相交的层的ID对
         static std::vector< std::pair<size_t, size_t> > mPossibleIntersectPairIDs; // only for temp-storage
 
     private:
+        //单线程更新
         void _Update_s();
 
+        //多线程更新
         void _Update_mt();
 
     private:

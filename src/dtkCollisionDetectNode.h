@@ -82,13 +82,13 @@ namespace dtk
         }
 
     protected:
-        dtkCollisionDetectHierarchy* mHierarchy;
-        std::vector< dtkID > mPrimitiveIDs;
-        std::vector< dtkCollisionDetectNode* > mChildren;
-        bool mLeaf;
-        size_t mLevel;
+        dtkCollisionDetectHierarchy* mHierarchy; //
+        std::vector< dtkID > mPrimitiveIDs; //图元ID
+        std::vector< dtkCollisionDetectNode* > mChildren; //子节点
+        bool mLeaf;  //是否为叶节点
+        size_t mLevel;  //当前层数
 
-        size_t mMaxLevel;
+        size_t mMaxLevel; //最大层数
 	};
 }
 

@@ -17,10 +17,14 @@ namespace dtk
         
 		~dtkCollisionDetectNodeKDOPS();
 
+        //递归划分
         void Split();
         
+        //更新包围盒
         void Update();
 
+
+        //根据图元重心平均值划分为左右分支。
         void SplitRule();
 
         inline const GK::KDOP& GetKDOP() const

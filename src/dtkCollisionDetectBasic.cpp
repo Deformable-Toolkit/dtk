@@ -18,13 +18,14 @@ using namespace std;
 
 namespace dtk
 {
+    //两个图元进行相交测试
     bool dtkCollisionDetectBasic::DoIntersect( 
             dtkCollisionDetectPrimitive* pri_1, 
             dtkCollisionDetectPrimitive* pri_2, 
             IntersectResult::Ptr& result, 
             bool self, bool ignore_extend )
     {
-        if( self )
+        if( self ) // 自交
         {
             for( dtkID i = 0; i < pri_1->mIDs.size(); i++ )
             {
@@ -41,6 +42,7 @@ namespace dtk
         bool exchanged = false;
 
 		// according primitives' vertex to make geometry object.
+        // 根据图元的顶点来制作几何对象。
         const GK::Object& obj_1 = pri_1->GetObject();
         const GK::Object& obj_2 = pri_2->GetObject();
 
@@ -48,10 +50,14 @@ namespace dtk
         double distance = pri_1->GetExtend() + pri_2->GetExtend();
         assert( distance >= 0 );
 		// ignore_extend represent considering the thickness of the two primitives.
+        // ignore_extend 表示考虑两个图元的厚度。
+
+        
         if( const GK::Triangle3* tri_1 = CGAL::object_cast< GK::Triangle3 >( &obj_1 ) )
-        {
+        {   
             if( const GK::Triangle3* tri_2 = CGAL::object_cast< GK::Triangle3 >( &obj_2 ) )
             {
+                //两个三角形相交。 考虑间距或者不考虑。
                 if( ignore_extend || distance == 0 )
                     intersected = dtkIntersectTest::DoIntersect( *tri_1, *tri_2, result );
                 else
@@ -59,6 +65,7 @@ namespace dtk
             }
             else if( const GK::Segment3* seg_2 = CGAL::object_cast< GK::Segment3 >( &obj_2 ) )
             {
+                //一个三角形与一个线段相交。 考虑间距或者不考虑。
                 if( ignore_extend || distance == 0 )
                     intersected = dtkIntersectTest::DoIntersect( *tri_1, *seg_2, result );
                 else
@@ -66,6 +73,7 @@ namespace dtk
             }
 			else if( const GK::Sphere3* sphere = CGAL::object_cast< GK::Sphere3 >( &obj_2 ) )
 			{
+                //一个三角形与一个球相交。 考虑间距或者不考虑。
 				if( ignore_extend || distance == 0 )
 					assert( false ); //intersected = dtkIntersectTest::DoIntersect( *tri_1, *sphere, result );
 				else
@@ -73,9 +81,10 @@ namespace dtk
 			}
         }
         else if( const GK::Segment3* seg_1 = CGAL::object_cast< GK::Segment3 >( &obj_1 ) )
-        {
+        {   
+          
             if( const GK::Triangle3* tri_2 = CGAL::object_cast< GK::Triangle3 >( &obj_2 ) )
-            {
+            {  //一个三角形与一个线段相交。 考虑间距或者不考虑。
                 exchanged = true;
                 if( ignore_extend || distance == 0 )
                     intersected = dtkIntersectTest::DoIntersect( *tri_2, *seg_1, result );
@@ -83,7 +92,7 @@ namespace dtk
                     intersected = dtkIntersectTest::DoDistanceIntersect( *tri_2, *seg_1, distance, result, pri_1->mInvert );
             }
             else if( const GK::Segment3* seg_2 = CGAL::object_cast< GK::Segment3 >( &obj_2 ) )
-            {
+            {  //两个线段相交。 考虑间距或者不考虑。
                 if( ignore_extend || distance == 0 )
                     intersected = dtkIntersectTest::DoIntersect( *seg_1, *seg_2, result );
                 else
@@ -115,6 +124,7 @@ namespace dtk
         return intersected;
     }
 
+    
     bool dtkCollisionDetectBasic::DoIntersect( const dtkCollisionDetectNode* node_1, const dtkCollisionDetectNode* node_2 )
     {
         if( const dtkCollisionDetectNodeKDOPS* node_kdops_1 = 
@@ -122,7 +132,7 @@ namespace dtk
         {
             if( const dtkCollisionDetectNodeKDOPS* node_kdops_2 = 
                     dynamic_cast< const dtkCollisionDetectNodeKDOPS* >( node_2 ) )
-            {
+            {//kdops 包围盒碰撞检测
                 return dtkIntersectTest::DoIntersect( node_kdops_1->GetKDOP(), node_kdops_2->GetKDOP() );
             }
             else
