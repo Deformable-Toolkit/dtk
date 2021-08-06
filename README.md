@@ -63,3 +63,7 @@ $ cmake -S "DTK_DIR" -B "DESTINATION_SHARED_DIR" -D BUILD_SHARED_LIBS=ON -D CMAK
 ```bash
 $ cmake --build "DESTINATION_SHARED_DIR" --config Release --target install
 ```
+
+## Help Documentation
+
+You can find help documentation [here](https://github.com/Deformable-Toolkit/dtk/blob/TOMbranch/doc/html/index.html).
