@@ -105,24 +105,24 @@ namespace dtk
 
 		void AddPrimitive( Primitive* primitive );
 
-        dtkCollisionDetectNode* mRoot; //根结点
+        dtkCollisionDetectNode* mRoot; /**< 碰撞检测树根结点 */
         
-        std::vector< dtkCollisionDetectNode* > mNodes;  //当前层结点集
+        std::vector< dtkCollisionDetectNode* > mNodes;  /**< 当前层结点集 */
 
-        std::vector< Primitive* > mPrimitives; //图元
+        std::vector< Primitive* > mPrimitives; /**< 图元集 */
 
-        GK::BBox3 mBox;  // AABB包围盒
+        GK::BBox3 mBox;  /**< AABB包围盒 */
 
-        GK::Point3 mOrigin;  //原点
+        GK::Point3 mOrigin;  /**< 原点 */
 
-        bool mLive;  //更新线程是否运行
+        bool mLive;  /**< 碰撞检测更新线程是否运行 */
 
-		size_t mMaxLevel; //最大层
+		size_t mMaxLevel; /**< 最大层数 */
 
     private:
-        void _UpdateAllPrimitives_s();  //单线程更新图元
+        void _UpdateAllPrimitives_s();  /**< 单线程更新图元 */
 
-        void _UpdateAllPrimitives_mt(); //多线程更新图元
+        void _UpdateAllPrimitives_mt(); /**< 多线程更新图元 */
 
     private:
         size_t mNumberOfThreads;

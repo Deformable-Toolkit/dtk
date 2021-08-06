@@ -27,11 +27,11 @@ namespace dtk
 		virtual ~dtkPhysSpring();
 
 	private:
-		dtkPhysMassPoint* mVerteces[2]; //两个质点
+		dtkPhysMassPoint* mVerteces[2]; /**< 弹簧两个质点 */
 
-		double mOriLength; //长度
-		double mStiffness;  //刚度
-		double mDamp; // 阻尼
+		double mOriLength; /**< 长度 */
+		double mStiffness;  /**< 刚度 */
+		double mDamp; /**<  阻尼 */
 
 	};
 }

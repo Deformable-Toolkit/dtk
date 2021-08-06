@@ -2,7 +2,7 @@
  * @Author: tom: https://github.com/TOMsworkspace 
  * @Date: 2021-08-05 16:52:58 
  * @Last Modified by: tom: https://github.com/TOMsworkspace
- * @Last Modified time: 2021-08-05 21:52:46
+ * @Last Modified time: 2021-08-06 19:37:12
  */
 
 #ifndef DTK_RIGIBODY_H
@@ -19,6 +19,13 @@
 namespace dtk {
 
     // 刚体
+    /**
+    * @class <dtkRigidBody> 
+    * @brief 刚体
+    * @author <tom>
+    * @note
+    * 刚体
+    */
     class dtkRigidBody {
     public:
         using vertex_list = std::vector<dtkDouble2>;
@@ -75,22 +82,29 @@ namespace dtk {
         dtkRigidBody(const dtkRigidBody &) = delete;
         const dtkRigidBody & operator=(const dtkRigidBody &) = delete;
 
-        dtkID mId; // id
-        double mMass; // 质量
-        double invMass; // 质量倒数（缓存，用于运算）
-        double mInertia; // 转动惯量
-        double invInertia; // 转动惯性倒数（缓存，用于运算）
-        dtkDouble2 mCentroid; // 重心
-        dtkDouble2 mPosition; // 位置
-        dtkMatrix22 mRotation; // 旋转矩阵
-        dtkDouble2 mVelocity; // 速度
-        double mAngularVelocity; // 角速度
-        dtkDouble2 mForce; // 受力
-        double mTorque; // 扭矩
-        double mFriction; // 摩擦力
+        dtkID mId; /**< id */
+        double mMass; /**< 质量 */
+        double invMass; /**< 质量倒数（缓存，用于运算）*/
+        double mInertia; /**< 转动惯量 */
+        double invInertia; /**< 转动惯性倒数（缓存，用于运算）*/
+        dtkDouble2 mCentroid; /**< 重心 */
+        dtkDouble2 mPosition; /**< 位置 */
+        dtkMatrix22 mRotation; /**< 旋转矩阵 */
+        dtkDouble2 mVelocity; /**< 速度 */
+        double mAngularVelocity; /**< 角速度 */
+        dtkDouble2 mForce; /**< 受力 */
+        double mTorque; /**< 扭矩 */
+        double mFriction; /**< 摩擦力 */
     };
 
-    // 几何刚体
+    // 凸多边形几何刚体
+    /**
+    * @class <dtkRigidBody> 
+    * @brief 凸多边形几何刚体
+    * @author <tom>
+    * @note
+    * 凸多边形几何刚体
+    */
     class dtkPolygonRigidBody : public dtkRigidBody {
     public:
         using ptr = std::shared_ptr<dtkPolygonRigidBody>;

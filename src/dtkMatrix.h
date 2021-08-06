@@ -13,6 +13,13 @@
 
 namespace dtk
 {
+	/**
+	* @class <dtkMatrix>
+	* @brief 矩阵
+	* @author <>
+	* @note
+	* 实现任意维的矩阵
+	*/
 	template<class T, class MatrixT=std::vector<T> >
 	struct dtkMatrix
 	{

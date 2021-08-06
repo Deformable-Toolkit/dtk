@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['test_886',['Test',['../classdtk_1_1dtk_intersect_test.html#a17e73e9b5ea21b81100ba9b27ad3b74e',1,'dtk::dtkIntersectTest::Test(GK::Point3 &amp;pt, const GK::Line3 &amp;line, const GK::Plane3 &amp;plane)'],['../classdtk_1_1dtk_intersect_test.html#a3e9e72340e5bfd3a622b73b9096136de',1,'dtk::dtkIntersectTest::Test(GK::Point3 &amp;pt, const GK::Ray3 &amp;ray, const GK::Plane3 &amp;plane)'],['../classdtk_1_1dtk_intersect_test.html#a8ab5e6c6ed9dc3ce53935abda4eb8a4a',1,'dtk::dtkIntersectTest::Test(GK::Point3 &amp;pt, const GK::Segment3 &amp;seg, const GK::Plane3 &amp;plane)'],['../classdtk_1_1dtk_intersect_test.html#a87ba8b2c441df186e1566afd607441a4',1,'dtk::dtkIntersectTest::Test(GK::Point3 &amp;pt, const GK::Ray3 &amp;ray, const GK::Triangle3 &amp;tri)'],['../classdtk_1_1dtk_intersect_test.html#adb2ef2001c93d2c38a70e3c44e560408',1,'dtk::dtkIntersectTest::Test(GK::Point3 &amp;pt, const GK::Segment3 &amp;seg, const GK::Triangle3 &amp;tri)'],['../classdtk_1_1dtk_intersect_test.html#ae4405ce576697e2853c6e9a3fa54e044',1,'dtk::dtkIntersectTest::Test(GK::Point3 &amp;pt, const GK::Line3 &amp;line, const GK::Triangle3 &amp;tri)'],['../classdtk_1_1dtk_intersect_test.html#a501537046601120558b2a489438c244a',1,'dtk::dtkIntersectTest::Test(const GK::BBox3 &amp;box1, const GK::BBox3 &amp;box2)']]],
+  ['tetra_5forder_887',['tetra_order',['../classdtk_1_1dtk_phys_tetra_mass_spring.html#a2eac85908b8a2636b9af052914d2aa8f',1,'dtk::dtkPhysTetraMassSpring']]],
+  ['tetrahedron3_888',['Tetrahedron3',['../classdtk_1_1dtk_graphics_kernel.html#a835df28bb1bae81175f458747ab81d26',1,'dtk::dtkGraphicsKernel']]],
+  ['thread_889',['THREAD',['../classdtk_1_1dtk_phys_core.html#a9dc50fc98d0b0506d526ff81271434ccabd431d8529edda4f8247584ca0fe37c5',1,'dtk::dtkPhysCore']]],
+  ['thread_5fsurface_890',['THREAD_SURFACE',['../classdtk_1_1dtk_phys_core.html#af297c28c52d1a8e5baaf2eaee353c3efaeb3f87041ce352de452ef44060dc19a5',1,'dtk::dtkPhysCore']]],
+  ['thread_5fupdate_891',['thread_update',['../namespacedtk.html#a7921ed8befdfd50f7af1f0883d631553',1,'dtk']]],
+  ['thread_5fupdate_5fnode_892',['thread_update_node',['../namespacedtk.html#a62a684050b8814bc62ff54d45f3b5aa9',1,'dtk']]],
+  ['threadhead_893',['THREADHEAD',['../classdtk_1_1dtk_phys_core.html#a9dc50fc98d0b0506d526ff81271434cca1d9499b1be520a1e2be0131d26c04f0f',1,'dtk::dtkPhysCore']]],
+  ['tofloat_894',['ToFloat',['../classdtk_1_1dtk_graphics_kernel.html#ae79ab0c4049b42cebcb982c0eea0cde4',1,'dtk::dtkGraphicsKernel']]],
+  ['tofloat3_895',['ToFloat3',['../classdtk_1_1dtk_graphics_kernel.html#a127a2b294074bc689e6446ce8ad5893f',1,'dtk::dtkGraphicsKernel::ToFloat3(const Type::Point3 &amp;pt)'],['../classdtk_1_1dtk_graphics_kernel.html#a48d7e56472b94afd1c821e15175885a8',1,'dtk::dtkGraphicsKernel::ToFloat3(const Type::Vector3 &amp;pt)']]],
+  ['transform_5fidentity_5fmatrix_896',['transform_identity_matrix',['../namespacedtk.html#a1449c4e852b0081c75356826b7bec985',1,'dtk']]],
+  ['translate_5fmatrix_897',['translate_matrix',['../namespacedtk.html#aabfa533ef6d8ad66046cf14161cbf4c4',1,'dtk']]],
+  ['transportforce_898',['TransportForce',['../classdtk_1_1dtk_phys_mass_spring.html#aecb201bd5acea42e7a966f2323675e44',1,'dtk::dtkPhysMassSpring']]],
+  ['transpose_899',['transpose',['../namespacedtk.html#af57b008bb0e487f229f630b61b9107d2',1,'dtk']]],
+  ['traversehierarchy_900',['TraverseHierarchy',['../classdtk_1_1dtk_collision_detect_stage.html#a0fc921f8358b54a13313a8c0eacf87b3',1,'dtk::dtkCollisionDetectStage']]],
+  ['triangle_901',['TRIANGLE',['../classdtk_1_1dtk_collision_detect_primitive.html#a322c7362d06bb1e7da7d65886b6abc3aa3aed3cc87961d29b2cf55ec87de869eb',1,'dtk::dtkCollisionDetectPrimitive']]],
+  ['triangle2_902',['Triangle2',['../classdtk_1_1dtk_graphics_kernel.html#abbea31838980d3dab06fb7d193bfb852',1,'dtk::dtkGraphicsKernel']]],
+  ['triangle3_903',['Triangle3',['../classdtk_1_1dtk_graphics_kernel.html#a913a4ba4b5549952d13c2318692b85f8',1,'dtk::dtkGraphicsKernel']]],
+  ['triangle_5fsegment_904',['TRIANGLE_SEGMENT',['../classdtk_1_1dtk_phys_mass_spring_collision_response.html#a505af6b634d7b59e61877e32fe53646da88bb20de1f572f75b59bdf07082bd601',1,'dtk::dtkPhysMassSpringCollisionResponse']]],
+  ['triangle_5ftriangle_905',['TRIANGLE_TRIANGLE',['../classdtk_1_1dtk_phys_mass_spring_collision_response.html#a505af6b634d7b59e61877e32fe53646da8244c4ed466b89fa54f9e6e5a2533c56',1,'dtk::dtkPhysMassSpringCollisionResponse']]],
+  ['trim_906',['trim',['../structdtk_1_1dtk_matrix.html#ac1b09b9ff2d6b8e4f902b314cce9c286',1,'dtk::dtkMatrix']]],
+  ['type_907',['Type',['../classdtk_1_1dtk_collision_detect_primitive.html#a0eb45f2b1a7df1e6b0faf8c53648e0d7',1,'dtk::dtkCollisionDetectPrimitive::Type()'],['../classdtk_1_1dtk_graphics_kernel.html#a4af53eb5d0727967c1a7a8e46fe66bb2',1,'dtk::dtkGraphicsKernel::Type()']]]
+];

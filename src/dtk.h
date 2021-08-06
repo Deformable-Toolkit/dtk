@@ -24,7 +24,7 @@
  * dtkErrorManager
  * - standard error reporter
  *
- * \subsection beforcg Base Elements For Computer Graphics
+ * \subsection beforcg 2. Base Elements For Computer Graphics
  * dtkIDx 
  * - identifier used for vertex, cell, etc.
  * - define struct dtkID2 dtkID3 dtkID4
@@ -65,7 +65,7 @@
  * dtkStaticMeshEliminator
  * - designed for Mesh eliminator
  * 
- * \subsection aeforcg Advanced Elements For Computer Graphics
+ * \subsection aeforcg 3.  Advanced Elements For Computer Graphics
  * dtkCenterLineMeshing(not implement)
  *
  * dtkCVTMeshing(not implement)

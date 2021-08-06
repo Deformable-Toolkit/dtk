@@ -31,7 +31,14 @@ namespace dtk
 		dtkID AddParticle( const GK::Point3& position, const double& lifetime, const double& mass = 1.0, const dtkT3<double>& vel = dtkT3<double>(0,0,0) );
 		dtkPhysParticle* GetParticle( dtkID id ) { return mParticles[id]; }
 
-		//更新粒子数量及状态
+		/**
+		* @brief		更新粒子数量及状态
+		* @param[in]	timeslice : 更新时间间隔
+		* @note			更新粒子数量及状态
+		* @return		
+		*	true update successfully \n
+		*	false update failure \n
+		*/
 		bool Update(double timeslice);
 
 		void SetEmitPosition( const GK::Point3& emitPosition ) { mEmitPosition = emitPosition; }
@@ -66,17 +73,17 @@ namespace dtk
 		dtkPhysParticleSystem( double particleRadius, double particleMass, double particleLifetime );
 		std::vector< dtkPhysParticle* > mParticles;
 
-		GK::Point3 mEmitPosition; //发散位置
-		bool mEmitting; //发散状态
-		double mDefaultParticleRadius; //默认粒子半径
-		double mDefaultMass; //默认质量
-		double mDefaultLifetime;  //默认生命周期
-		dtkDouble3 mDefaultVelocity; //速度
+		GK::Point3 mEmitPosition; /**< 发散位置 */
+		bool mEmitting; /**< 发散状态 */
+		double mDefaultParticleRadius; /**< 默认粒子半径 */
+		double mDefaultMass; /**< 默认质量 */
+		double mDefaultLifetime;  /**< 默认存活时间 */
+		dtkDouble3 mDefaultVelocity; /**< 速度 */
 
-		dtkDouble3 mForceAffector; //附加力
-		dtkDouble3 mForceDisturbance; //干扰力
+		dtkDouble3 mForceAffector; /**< 附加力 */
+		dtkDouble3 mForceDisturbance; /**< 干扰力 */
 
-		double mEmitRate;  //发散率
+		double mEmitRate;  /**< 发散率 */
 	};
 }
 

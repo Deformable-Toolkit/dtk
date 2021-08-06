@@ -16,9 +16,9 @@ namespace dtk
     public:
 	    enum ResponseType
 	    {
-		    TRIANGLE_SEGMENT = 0,
-		    SEGMENT_SEGMENT,
-		    TRIANGLE_TRIANGLE
+		    TRIANGLE_SEGMENT = 0, /**< 三角形与线段相交 */
+		    SEGMENT_SEGMENT, /**< 线段与线段相交 */
+		    TRIANGLE_TRIANGLE /**< 三角形与三角形相交 */
 	    };
 	public:
 		typedef std::shared_ptr< dtkPhysMassSpringCollisionResponse > Ptr;

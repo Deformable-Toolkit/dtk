@@ -14,6 +14,13 @@ namespace dtk
 {
     class dtkCollisionDetectHierarchy;
 
+    /**
+    * @class <dtkCollisionDetectNode> 
+    * @brief 冲突检测树结点
+    * @author <>
+    * @note
+    * 冲突检测树结点类，包含一个dtkCollisionDetectHierarchy针，指向一组图元。
+    */
 	class dtkCollisionDetectNode
 	{
 	public:
@@ -82,13 +89,13 @@ namespace dtk
         }
 
     protected:
-        dtkCollisionDetectHierarchy* mHierarchy; //
-        std::vector< dtkID > mPrimitiveIDs; //图元ID
-        std::vector< dtkCollisionDetectNode* > mChildren; //子节点
-        bool mLeaf;  //是否为叶节点
-        size_t mLevel;  //当前层数
+        dtkCollisionDetectHierarchy* mHierarchy; /**< 冲突检测树一个层，包含一组图元 */
+        std::vector< dtkID > mPrimitiveIDs; /**< 图元ID的集合 */
+        std::vector< dtkCollisionDetectNode* > mChildren; /**< 冲突检测树的子节点 */
+        bool mLeaf;  /**< 当前节点是否为叶节点 */
+        size_t mLevel;  /**< 当前节点所处层数 */
 
-        size_t mMaxLevel; //最大层数
+        size_t mMaxLevel; /**< 最大层数 */
 	};
 }
 

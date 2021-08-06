@@ -7,19 +7,23 @@
 
 namespace dtk
 {
-    //A group of small intesection test functions, 
-    //Cannot instanlized.
+	/**
+	* @class <dtkIntersectTest> 
+	* @brief A group of small intesection test functions
+	* @author <>
+	* @note Cannot instanlized.
+	*/
     class dtkIntersectTest
     {
         public:
             enum IntersectResultType
             {
-                INTERSECT_PRIMITIVE_1,  // represent the primitive1 for intersect testing 
-                INTERSECT_PRIMITIVE_2,  // represent the primitive2 for intersect testing
-                INTERSECT_NORMAL,
-                INTERSECT_WEIGHT_1,
-                INTERSECT_WEIGHT_2,
-                INTERSECT_OBJECT
+                INTERSECT_PRIMITIVE_1,  /**< represent the primitive1 for intersect testing */
+                INTERSECT_PRIMITIVE_2,  /**< represent the primitive2 for intersect testing */
+                INTERSECT_NORMAL, /**< the normal of interest. */ 
+                INTERSECT_WEIGHT_1, /**< represent the intersect weight of primitive 1 */ 
+                INTERSECT_WEIGHT_2, /**< represent the intersect weight of primitive 2 */ 
+                INTERSECT_OBJECT /**< represent the intersect object from CGAL */ 
             };
 
             typedef dtkProperty<IntersectResultType> IntersectResult;

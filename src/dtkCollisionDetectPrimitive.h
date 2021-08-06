@@ -12,7 +12,14 @@
 #include "dtkPoints.h"
 
 namespace dtk
-{
+{   
+    /**
+    * @class <dtkCollisionDetectPrimitive> 
+    * @brief 碰撞检测图元
+    * @author <>
+    * @note
+    * 碰撞检测图元，描述每个碰撞检测的物体。
+    */
 	class dtkCollisionDetectPrimitive
 	{
     public:
@@ -30,7 +37,9 @@ namespace dtk
 
 		~dtkCollisionDetectPrimitive(){}
 
-        //更新质心及图元对象
+        /**
+         * @brief 更新质心及图元对象顶点
+         */
         void Update();
 
 		inline void Modified()
@@ -89,31 +98,31 @@ namespace dtk
         }
 
     public:
-        Type mType;  //图元类型
-        std::vector< dtkID > mIDs; //点ID集合
-        dtkPoints::Ptr mPts; //点集
+        Type mType;  /**< 图元类型 */
+        std::vector< dtkID > mIDs; /**< 点ID集 */
+        dtkPoints::Ptr mPts; /**< 点集 */
 
-        dtkID mInvert;  // represent the positive and inverse of triangle 三角形正反、内外
+        dtkID mInvert;  /**< represent the positive and inverse of triangle 三角形正反、内外朝向 */
 
         // Custom ID
-        dtkID mMajorID; // the object id, such as liver ID,主Id
-        dtkID mMinorID; // the triangle id,副id.
-        dtkID mDetailIDs[3]; // the points of triangle id, 三角形图元的三个点
-        size_t mNumberOfPoints;
+        dtkID mMajorID; /**< the object id, such as liver ID,主Id */
+        dtkID mMinorID; /**< the triangle id,副id. */
+        dtkID mDetailIDs[3]; /**< the points of triangle id, 三角形图元的三个点的ID */
+        size_t mNumberOfPoints; /**< 图元点数量 */
 
-		dtkID mCustomID; // for region recognization, Yuguang Yang
+		dtkID mCustomID; /**< for region recognization, Yuguang Yang */
 
 		int mLocalID;
 
-		bool mActive;  //图元是否激活
+		bool mActive;  /**< 图元是否活动状态 */
 
     private:
-        GK::Object mObject; //对象
-        GK::Point3 mCentroid;  //质心
+        GK::Object mObject; /**< 图元对象 */
+        GK::Point3 mCentroid;  /**< 质心 */
 
-        bool mModified;   //是否更改
-        bool mIntersected; //是否相交
-		double mExtend; // 是否有间隔
+        bool mModified;   /**< 是否更改 */
+        bool mIntersected; /**< 是否与其他图元相交 */
+		double mExtend; /**< 是否有相交间隔 */
 	};
 
 	inline std::ostream& operator<<(std::ostream& stream, const dtkCollisionDetectPrimitive& primitive)

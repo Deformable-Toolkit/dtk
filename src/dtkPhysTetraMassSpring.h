@@ -55,20 +55,20 @@ namespace dtk
 
     protected:
         //四面体网格
-		dtkStaticTetraMesh::Ptr mTetraMesh; //四面体集
+		dtkStaticTetraMesh::Ptr mTetraMesh; /**< 四面体弹簧网格 */
 
 
         bool mFullUseAltSpring;
 
-        dtkPoints::Ptr mOriPointsPtr; //点集
+        dtkPoints::Ptr mOriPointsPtr; /**< 点集 */
 
-        double mAltitudeStiff;  //弹簧刚性系数，弹性系数 
+        double mAltitudeStiff;  /**< 弹簧刚性系数，弹性系数 */ 
 
-        double mAltitudeDamp;  //弹簧阻尼
+        double mAltitudeDamp;  /**< 弹簧阻尼 */
 
 		std::vector< std::vector< double > > mOriLengths; // numberOfTetra * 7  每个四面体的高及对边的距离
 
-		std::map< dtkID2, size_t > mSpringCount; //弹簧数
+		std::map< dtkID2, size_t > mSpringCount; /**< 弹簧数 */
 		
 		/*
         dtkT3<T> mAltitudePoint1;

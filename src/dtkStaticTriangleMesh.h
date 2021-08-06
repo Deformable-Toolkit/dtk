@@ -15,7 +15,13 @@
 namespace dtk
 {
 	//This class is implemented following "Compact Array-Based Mesh Data Structures"
-
+	/**
+	* @class <dtkStaticTriangleMesh> 
+	* @brief 三角网格
+	* @author <>
+	* @note This class is implemented following "Compact Array-Based Mesh Data Structures"
+	* 
+	*/
 	class dtkStaticTriangleMesh: public boost::noncopyable
 	{
 	public:

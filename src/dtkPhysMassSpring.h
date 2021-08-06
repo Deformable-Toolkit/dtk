@@ -51,9 +51,28 @@ namespace dtk
         void SetSpringDamp(int id, double newDamp);
         void SetPointMass(int id, double newMass);
 
-        //更新弹簧及质点状态
+        /**
+		* @brief		更新弹簧及质点状态
+		* @param[in]	timeslice : 更新时间间隔
+		* @param[in]	method : 迭代更新算法	
+		* @param[in]	limitDeformation : 弹簧弹性限度
+		* @note			更新弹簧及质点状态
+		* @return		
+		*	true update successfully \n
+		*	false update failure \n
+		*/				
 		bool Update(double timeslice, ItrMethod method = Euler, bool limitDeformation = false);
-        //单线程更新
+
+        /**
+		* @brief		单线程更新弹簧及质点状态
+		* @param[in]	timeslice : 更新时间间隔
+		* @param[in]	method : 迭代更新算法	
+		* @param[in]	limitDeformation : 弹簧弹性限度
+		* @note			单线程更新弹簧及质点状态
+		* @return		
+		*	true update successfully \n
+		*	false update failure \n
+		*/
 		bool Update_s(double timeslice, ItrMethod method = Euler, bool limitDeformation = false);
 		virtual bool PreUpdate(double timeslice, ItrMethod method = Euler, dtkID iteration = 0);
         virtual bool PostUpdate(ItrMethod method = Euler, dtkID iteration = 0);
@@ -64,9 +83,28 @@ namespace dtk
         //应用冲量
 		bool ApplyImpulse( double timeslice );
         
-        //更新弹簧状态，点位置，速度等
+        /**
+		* @brief		更新弹簧状态，点位置，速度等
+		* @param[in]	timeslice : 更新时间间隔
+		* @param[in]	method : 迭代更新算法	
+		* @param[in]	limitDeformation : 弹簧弹性限度
+		* @note			更新弹簧状态，点位置，速度等
+		* @return		
+		*	true update successfully \n
+		*	false update failure \n
+		*/
 		bool UpdateStrings(double timeslice, ItrMethod method = Euler, dtkID iteration = 0, bool limitDeformation = false);
-        //更新质点状态，点位置，速度等
+
+        /**
+		* @brief		更新质点状态，点位置，速度等
+		* @param[in]	timeslice : 更新时间间隔
+		* @param[in]	method : 迭代更新算法	
+		* @param[in]	limitDeformation : 弹簧弹性限度
+		* @note			更新质点状态，点位置，速度等
+		* @return		
+		*	true update successfully \n
+		*	false update failure \n
+		*/
 		bool UpdateMassPoints(double timeslice, ItrMethod method = Euler, dtkID iteration = 0);
 
         //从三角网格添加质量弹簧
@@ -124,21 +162,21 @@ namespace dtk
 #endif
 
 	protected:
-		dtkPoints::Ptr mPts; //点集
-		std::vector<dtkPhysMassPoint*> mMassPoints; //质点集
-		std::vector<dtkPhysSpring*> mSprings; //弹簧
+		dtkPoints::Ptr mPts; /**< 点集 */
+		std::vector<dtkPhysMassPoint*> mMassPoints; /**< 质点集 */
+		std::vector<dtkPhysSpring*> mSprings; /**< 弹簧 */
 
         //边集
-		std::map< dtkID2, dtkPhysSpring* > mEdgeMap;// map from spring specified by dtkID2 to spring id
+		std::map< dtkID2, dtkPhysSpring* > mEdgeMap;/**< map from spring specified by dtkID2 to spring id */
 
-        double mDefaultMass; // 质量
-        double mDefaultStiff; // 弹簧刚性系数，弹性系数
-        double mDefaultDamp; // 弹簧阻尼
-		double mDefaultPointDamp; //点阻尼
-		double mDefaultPointResistence; //阻力
-		dtkDouble3 mDefaultGravityAccel;  //重力加速度
+        double mDefaultMass; /**< 质量 */
+        double mDefaultStiff; /**< 弹簧刚性系数，弹性系数 */
+        double mDefaultDamp; /**< 弹簧阻尼 */
+		double mDefaultPointDamp; /**< 点阻尼 */
+		double mDefaultPointResistence; /**< 阻力 */
+		dtkDouble3 mDefaultGravityAccel;  /**< 重力加速度 */
 
-		bool mUnderControl; //受控
+		bool mUnderControl; /**< 弹簧受控 */
 		
 		std::vector< dtkID > mLabels;  // 标记点集， 可给予Transport力
 		std::map< dtkID, dtkT3<double> > mTransportForces; //

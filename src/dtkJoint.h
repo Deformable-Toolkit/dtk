@@ -1,8 +1,8 @@
-/*
+/**
  * @Author: tom: https://github.com/TOMsworkspace 
  * @Date: 2021-08-05 20:55:52 
  * @Last Modified by: tom: https://github.com/TOMsworkspace
- * @Last Modified time: 2021-08-05 22:04:03
+ * @Last Modified time: 2021-08-06 17:40:23
  */
 
 #ifndef DTK_JOINT_H
@@ -15,7 +15,13 @@
 
 namespace dtk {
 
-    // 关节
+
+    /**
+    * @class <dtkJoint> 
+    * @brief 刚体的关节
+    * @author <tom>
+    * @note
+    */
     class dtkJoint {
     public:
         using ptr = std::shared_ptr<dtkJoint>;
@@ -36,10 +42,15 @@ namespace dtk {
         dtkJoint(const dtkJoint&) = delete; 
         const dtkJoint& operator=(const dtkJoint&) = delete;
 
-        std::weak_ptr<dtkRigidBody> mBodyA, mBodyB; // 关节相联结的两个刚体
+        std::weak_ptr<dtkRigidBody> mBodyA, mBodyB; /**< 关节相联结的两个刚体 */
     };
 
-    // 旋转关节
+    /**
+    * @class <dtkRevoluteJoint> 
+    * @brief 连接刚体的旋转关节
+    * @author <tom>
+    * @note 实现刚体转动，摆动等效果
+    */
     class dtkRevoluteJoint : public dtkJoint {
     public:
         using ptr = std::shared_ptr<dtkJoint>;
@@ -58,15 +69,15 @@ namespace dtk {
         dtkRevoluteJoint(const dtkRevoluteJoint &) = delete; 
         const dtkRevoluteJoint & operator = (const dtkRevoluteJoint &) = delete;
 
-        dtkDouble2 mAnchor; // 固定位置（世界坐标）
-        dtkDouble2 mLocalAnchorA; // 刚体a相对坐标
-        dtkDouble2 mLocalAnchorB; // 刚体b相对坐标
+        dtkDouble2 mAnchor; /**< 固定位置（世界坐标） */
+        dtkDouble2 mLocalAnchorA; /**< 刚体a相对坐标 */
+        dtkDouble2 mLocalAnchorB; /**< 刚体b相对坐标 */
 
-        dtkDouble2 mRotateA; // a旋转角度向量
-        dtkDouble2 mRotateB; // b旋转角度向量
-        dtkMatrix22 mMassAll; // 总质量
-        dtkDouble2 mMomentum; // 动量
-        dtkDouble2 mBias; // 修正
+        dtkDouble2 mRotateA; /**< 刚体a旋转角度向量 */
+        dtkDouble2 mRotateB; /**< b旋转角度向量 */
+        dtkMatrix22 mMassAll; /**< 总质量 */
+        dtkDouble2 mMomentum; /**< 动量 */
+        dtkDouble2 mBias; /**< 修正 */
     };
 }
 

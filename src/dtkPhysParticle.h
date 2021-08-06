@@ -6,7 +6,14 @@
 #include "dtkTx.h"
 
 namespace dtk
-{
+{	
+	/**
+	* @class <dtkPhysParticle> 
+	* @brief 粒子
+	* @author <>
+	* @note
+	* 
+	*/
 	class dtkPhysParticle
 	{//粒子
 	public:
@@ -14,8 +21,15 @@ namespace dtk
 
 	public:
 		virtual ~dtkPhysParticle();
-		
-		//更新粒子位置，力,加速度，速度等
+
+		/**
+		* @brief		更新粒子位置，力,加速度，速度等
+		* @param[in]	timeslice : 更新时间间隔
+		* @note			更新粒子位置，力,加速度，速度等
+		* @return		
+		*	true update successfully \n
+		*	false update failure \n
+		*/
 		bool Update(double timeslice );
 
 		const GK::Point3& GetPoint(){ return mPoint; }
@@ -41,19 +55,19 @@ namespace dtk
         bool IsActive() { return mActive; }
 
 	private:
-		GK::Point3 mPoint; //点
+		GK::Point3 mPoint; /**< 点 */
 
-		dtkT3<double> mVel; //速度
-		dtkT3<double> mAccel; //加速度
-		dtkT3<double> mForceAccum; //合力
+		dtkT3<double> mVel; /**< 速度 */
+		dtkT3<double> mAccel; /**< 加速度 */
+		dtkT3<double> mForceAccum; /**< 合外力 */
 
-		double mMass; //质量
+		double mMass; /**< 粒子质量 */
 
-		double mResistCoef; //阻力系数
+		double mResistCoef; /**< 阻力系数 */
 
-		double mLifetime; //生命周期
+		double mLifetime; /**< 粒子生命周期 */
 
-		bool mActive; //是否活跃
+		bool mActive; /**< 是否存活 */
 	};
 }
 
