@@ -67,3 +67,6 @@ $ cmake --build "DESTINATION_SHARED_DIR" --config Release --target install
 ## Help Documentation
 
 You can find help documentation [here](https://github.com/Deformable-Toolkit/dtk/blob/TOMbranch/doc/html/index.html).
+
+The docmentation's index.html is shown below.
+![index](https://cdn.jsdelivr.net/gh/TOMsworkspace/TOMsworkspace.github.io/2021/08/06/Doxygen自动生成文档/doc.png)
