@@ -213,13 +213,6 @@ namespace dtk
 		return normalize(res);
 	}
 
-	template <class T>
-	inline dtkT3<T> normalize(const dtkT3<T> &v)
-	{
-		T m = sqrt(dot(v, v));
-		assert(m>0);
-		return dtkT3<T>( v.x/m, v.y/m, v.z/m);
-	}
 
 	template <class T>
 	inline dtkT3<T> operator-(const dtkT3<T> &v)
@@ -227,11 +220,6 @@ namespace dtk
 		return dtkT3<T>(-v.x, -v.y, -v.z);
 	}
 
-	template <class T>
-	inline T length(const dtkT3<T> &v)
-	{
-		return sqrt(dot(v, v));
-	}
         
     template <class T>
     inline dtkT3<T> barycentricWeight(const dtkT3<T> &p0, const dtkT3<T> &p1, const dtkT3<T> &p2, const dtkT3<T> &p3)

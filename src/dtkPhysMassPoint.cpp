@@ -114,7 +114,8 @@ namespace dtk
 
 		switch(method)
 		{
-		case Euler:
+		case Euler: 
+			// forward Eular
 			// compute acceleration
 			mAccel = (mForceAccum + mForceDecorator + mGravity) / mMass;
 			mForceAccum = dtkT3<double>(0,0,0);

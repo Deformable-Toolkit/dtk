@@ -4,6 +4,7 @@ using namespace std;
 using namespace Eigen;
 void main()
 {
+	
 	Matrix2d a;
 	a << 1, 2,
 		3, 4;
@@ -22,6 +23,15 @@ void main()
 	cout << "-v + w - v =\n" << -v + w - v << endl;
 	cout << v << endl;
 	cout << v.transpose() << endl;
+	
+
+	vector<Vector2f> vec(2);
+
+	vec[0] = Vector2f(1.0,1.0);
+	vec[1] = Vector2f(1.0,1.0);
+
+	for(auto & v : vec)
+		cout << (Vector2f)v << endl;
 
 	system("pause");
 }

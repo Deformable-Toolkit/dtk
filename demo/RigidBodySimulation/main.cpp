@@ -1,11 +1,15 @@
 #include "GL/freeglut.h"
 #include <chrono>
 #include <cmath>
-#include "cworld.h"
 #include <iostream>
+
+#include "dtkScene.h"
+#include "dtkFemSimulation.h"
 
 static auto last_clock = std::chrono::high_resolution_clock::now();
 static clib::cworld world({0, -9.8});
+
+dtkFemSimulation Breakout(SCREEN_WIDTH, SCREEN_HEIGHT);
 
 static void draw_text(int x, int y, const char *format, ...) {
     glMatrixMode(GL_PROJECTION);
@@ -301,7 +305,7 @@ int main(int argc, char *argv[]) {
     glutInitWindowPosition(50, 50);
     glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);
     glutCreateWindow("Physics Engine -- dtk");
-    init();
+    Breakout.Init();
     glutDisplayFunc(&display);
     glutReshapeFunc(&reshape);
     glutMouseFunc(&mouse);
