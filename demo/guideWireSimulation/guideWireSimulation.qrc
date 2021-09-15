@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Resources/center.png</file>
+        <file>Resources/load_vascular.png</file>
+        <file>Resources/pause.png</file>
+        <file>Resources/quit.png</file>
+        <file>Resources/start.png</file>
+        <file>Resources/zoom-in.png</file>
+        <file>Resources/zoom-out.png</file>
+        <file>Resources/question.jpg</file>
+        <file>Resources/igst.jpg</file>
+    </qresource>
+</RCC>
