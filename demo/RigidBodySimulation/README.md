@@ -74,5 +74,5 @@ $ cmake --build "DESTINATION_DIR" --config Release
 ### example
 
 <div align="center">
-  <img src="../img/dtkRigidBodySimulation.gif" />
+  <img src="../img/dtkRigidBodySimulation.gif" width = "50%", height = "50%"/>
 </div>

@@ -85,7 +85,7 @@ $ cmake --build "DESTINATION_SHARED_DIR" --config Release --target install
 &emsp; A physical simulation demo for 2D rigid body in real time. It deals with the collision of the rigid body which has no deformation by SAT and AABB methods.
 
 <div align="center">
-  <img src="./demo/img/dtkRigidBodySimulation.gif" width = "80%", height = "80%"/>
+  <img src="./demo/img/dtkRigidBodySimulation.gif" width = "50%", height = "50%"/>
 </div>
 
 ### Finite element method simulation
@@ -93,7 +93,7 @@ $ cmake --build "DESTINATION_SHARED_DIR" --config Release --target install
 &emsp;A finite element method physical simulation for 2D hyperelasticity deformation meterial body in real time.
 
 <div align="center">
-  <img src="./demo/img/dtkFemSimulation.gif" width = "80%", height = "80%"/>
+  <img src="./demo/img/dtkFemSimulation.gif" width = "50%", height = "50%"/>
 </div>
 
 ### SPH methods Simualtion
@@ -111,7 +111,7 @@ $ cmake --build "DESTINATION_SHARED_DIR" --config Release --target install
 &emsp;A blood flow induced physical simulation of guidewire shape for virtual vascular intervention training system in real time. Virtual vascular intervention training system, which is a low cost, safe and effective solution, is able to provide an immersive virtual training environment for trainees.
 
 <div align="center">
-  <img src="./demo/img/guideWire.jpg" />
+  <img src="./demo/img/guideWire.jpg" width = "50%", height = "50%" />
 </div>
 
 ## Help Documentation

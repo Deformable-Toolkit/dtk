@@ -227,7 +227,7 @@
 //#include "dtkCenterLineMeshing.h"
 
 //Scene
-//#include "dtkScene.h"
+#include "dtkScene.h"
 //#include "dtkMassSpringSimulator.h"
 //#include "dtkRigidBodySimulator.h"
 //#include "dtkMassSpringDataSourceBasic.h"

@@ -1,5 +1,5 @@
 /**
- * @file dtkGUIOpenGLbyFreeGLUT.cpp
+ * @file dtkGUIOpenGLbyFreeGLUT.h
  * @author TOMsworkspace (2683322180@qq.com)
  * @brief dtk GUI by opengl with FreeGLUT.
  * @version 1.0
@@ -33,7 +33,8 @@ const unsigned int SCREEN_WIDTH = 800;
 // The height of the screen
 const unsigned int SCREEN_HEIGHT = 600;
 
-int main(int argc, char *argv[]) {
+int dtkGUIMainloop()
+{
     glutInit(&argc, argv);
     glutInitWindowSize(800, 600);
     glutInitWindowPosition(50, 50);

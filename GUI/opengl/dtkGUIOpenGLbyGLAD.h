@@ -1,5 +1,5 @@
 /**
- * @file dtkGUIOpenGLbyGLAD.cpp
+ * @file dtkGUIOpenGLbyGLAD.h
  * @author TOMsworkspace (2683322180@qq.com)
  * @brief dtk GUI by opengl with glad and glfw.
  * @version 1.0
@@ -28,7 +28,7 @@ const unsigned int SCREEN_WIDTH = 800;
 // The height of the screen
 const unsigned int SCREEN_HEIGHT = 600;
 
-int main(int argc, char *argv[])
+int dtkGUIMainloop()
 {
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -114,7 +114,6 @@ void Update(float delatTime){
 void Render(){
     //TODO: render scene here.
 }
-
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode)
 {
