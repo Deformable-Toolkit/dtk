@@ -250,7 +250,10 @@
 #include "dtkIO.h"
 
 //FEM
-//#include "dtkFEM.h"
+//#include "dtkFEMSolver.h"
+
+//SPH
+//#include "dtkSPHSolver.h"
 
 #include "dtkInit.h"
 

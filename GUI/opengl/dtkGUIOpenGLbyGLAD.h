@@ -77,16 +77,16 @@ int dtkGUIMainloop()
         lastFrame = currentFrame;
         glfwPollEvents();
 
-        // manage user input
+        // manage input
         // -----------------
         ProcessInput(deltaTime);
 
-        // update game state
+        // update simulation scene state
         // -----------------
         Update(deltaTime);
 
-        // render
-        // ------
+        // render scene
+        // -----------------
         glClearColor(0x11 * 1.0 / 0xff, 0x2f * 1.0 / 0xff, 0x41 * 1.0 / 0xff, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         Render();
