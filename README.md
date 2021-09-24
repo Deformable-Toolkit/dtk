@@ -96,7 +96,7 @@ $ cmake --build "DESTINATION_SHARED_DIR" --config Release --target install
   <img src="./demo/img/dtkFemSimulation.gif" width = "50%", height = "50%"/>
 </div>
 
-### SPH methods Simualtion
+### SPH methods Simulation
 
 &emsp;A physical simulation demo for 2D fluid in real time. It deals with the fluid body by a series of SPH methods, which include WCSPH, PCISPH and DFSPH.
 
@@ -106,7 +106,7 @@ $ cmake --build "DESTINATION_SHARED_DIR" --config Release --target install
 
 &emsp;The SPH method is WCSPH, PCISPH and DFSPH from left to right.
 
-### Guidewire Simulaiton
+### Guidewire Simulation
 
 &emsp;A blood flow induced physical simulation of guidewire shape for virtual vascular intervention training system in real time. Virtual vascular intervention training system, which is a low cost, safe and effective solution, is able to provide an immersive virtual training environment for trainees.
 
