@@ -73,6 +73,6 @@ $ cmake --build "DESTINATION_DIR" --config Release
 
 ### example
 
-<div align = center>
-![rigidbody simulation](../img/dtkRigidBodySimulation.gif)
+<div align="center">
+  <img src="../img/dtkRigidBodySimulation.gif" />
 </div>

@@ -78,6 +78,6 @@ $ cmake --build "DESTINATION_DIR" --config Release
 
 ### example
 
-<div align = center>
-![guideWire](../img/guideWire.jpg)
+<div align="center">
+  <img src="../img/guideWire.jpg" />
 </div>

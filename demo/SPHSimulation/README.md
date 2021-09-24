@@ -74,5 +74,7 @@ $ cmake --build "DESTINATION_DIR" --config Release
 ### example
 
 <div align = center>
-![WCSPH method](../img/WCSPH.gif)![PCISPH method](../img/PCISPH.gif)![DFSPH method](../img/DFSPH.gif)
+<img src="../img/WCSPH.gif" width = "30%", height = "30%" /><img src="../img/PCISPH.gif" width = "30%", height = "30%"/><img src="../img/DFSPH.gif" width = "30%", height = "30%"/>
 </div>
+
+&emsp;The SPH method is WCSPH, PCISPH and DFSPH from left to right.

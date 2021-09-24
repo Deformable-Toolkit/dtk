@@ -84,16 +84,16 @@ $ cmake --build "DESTINATION_SHARED_DIR" --config Release --target install
 
 &emsp; A physical simulation demo for 2D rigid body in real time. It deals with the collision of the rigid body which has no deformation by SAT and AABB methods.
 
-<div align = center>
-![rigidbody simulation](../img/dtkRigidBodySimulation.gif)
+<div align="center">
+  <img src="./demo/img/dtkRigidBodySimulation.gif" width = "80%", height = "80%"/>
 </div>
 
 ### Finite element method simulation
 
 &emsp;A finite element method physical simulation for 2D hyperelasticity deformation meterial body in real time.
 
-<div align = center>
-![finite element method](../img/dtkFemSimulation.gif)
+<div align="center">
+  <img src="./demo/img/dtkFemSimulation.gif" width = "80%", height = "80%"/>
 </div>
 
 ### SPH methods Simualtion
@@ -101,15 +101,17 @@ $ cmake --build "DESTINATION_SHARED_DIR" --config Release --target install
 &emsp;A physical simulation demo for 2D fluid in real time. It deals with the fluid body by a series of SPH methods, which include WCSPH, PCISPH and DFSPH.
 
 <div align = center>
-![WCSPH method](../img/WCSPH.gif)![PCISPH method](../img/PCISPH.gif)![DFSPH method](../img/DFSPH.gif)
+<img src="./demo/img/WCSPH.gif" width = "30%", height = "30%" /><img src="./demo/img/PCISPH.gif" width = "30%", height = "30%"/><img src="./demo/img/DFSPH.gif" width = "30%", height = "30%"/>
 </div>
+
+&emsp;The SPH method is WCSPH, PCISPH and DFSPH from left to right.
 
 ### Guidewire Simulaiton
 
 &emsp;A blood flow induced physical simulation of guidewire shape for virtual vascular intervention training system in real time. Virtual vascular intervention training system, which is a low cost, safe and effective solution, is able to provide an immersive virtual training environment for trainees.
 
-<div align = center>
-![guideWire](../img/guideWire.jpg)
+<div align="center">
+  <img src="./demo/img/guideWire.jpg" />
 </div>
 
 ## Help Documentation
