@@ -114,6 +114,6 @@ $ cmake --build "DESTINATION_SHARED_DIR" --config Release --target install
   <img src="./demo/img/guideWire.jpg" width = "50%", height = "50%" />
 </div>
 
-## Help Documentation
+## Documentation
 
-You can find help documentation [here](https://github.com/Deformable-Toolkit/dtk/blob/TOMbranch/doc/html/index.html).
+You can find documentation [here](https://github.com/Deformable-Toolkit/dtk/blob/TOMbranch/doc/html/index.html).
