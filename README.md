@@ -28,6 +28,20 @@ Add the path to the Boost dlls (C:\dev\libboost_1_71_0\lib64-msvc-XX.Y) files to
 
 &emsp;&emsp;[How to install CGAL](https://doc.cgal.org/latest/Manual/index.html)
 
+### [Eigen](https://eigen.tuxfamily.org/index.php?title=Main_Page)
+
+&emsp;Eigen is a C++ template library for linear algebra: matrices, vectors, numerical solvers, and related algorithms.
+
+&emsp;&emsp;[How to build with Eigen](https://eigen.tuxfamily.org/dox/GettingStarted.html)
+
+### [freeglut](http://freeglut.sourceforge.net)
+
+&emsp;Freeglut, the Free OpenGL Utility Toolkit, is meant to be a free alternative to Mark Kilgard's GLUT library. 
+
+&emsp;dtk Render by Opengl.
+
+&emsp;&emsp;[How to build freeglut with CMAKE](https://doc.qt.io/qt-5/cmake-get-started.html#build-a-gui-executable)
+
 ## How to build
 
 &emsp;&emsp;Dtk is build by CMake. so you can build easily.
@@ -64,9 +78,40 @@ $ cmake -S "DTK_DIR" -B "DESTINATION_SHARED_DIR" -D BUILD_SHARED_LIBS=ON -D CMAK
 $ cmake --build "DESTINATION_SHARED_DIR" --config Release --target install
 ```
 
+## demo with dtk
+
+### Rigid body Simulation demo
+
+&emsp; A physical simulation demo for 2D rigid body in real time. It deals with the collision of the rigid body which has no deformation by SAT and AABB methods.
+
+<div align = center>
+![rigidbody simulation](../img/dtkRigidBodySimulation.gif)
+</div>
+
+### Finite element method simulation
+
+&emsp;A finite element method physical simulation for 2D hyperelasticity deformation meterial body in real time.
+
+<div align = center>
+![finite element method](../img/dtkFemSimulation.gif)
+</div>
+
+### SPH methods Simualtion
+
+&emsp;A physical simulation demo for 2D fluid in real time. It deals with the fluid body by a series of SPH methods, which include WCSPH, PCISPH and DFSPH.
+
+<div align = center>
+![WCSPH method](../img/WCSPH.gif)![PCISPH method](../img/PCISPH.gif)![DFSPH method](../img/DFSPH.gif)
+</div>
+
+### Guidewire Simulaiton
+
+&emsp;A blood flow induced physical simulation of guidewire shape for virtual vascular intervention training system in real time. Virtual vascular intervention training system, which is a low cost, safe and effective solution, is able to provide an immersive virtual training environment for trainees.
+
+<div align = center>
+![guideWire](../img/guideWire.jpg)
+</div>
+
 ## Help Documentation
 
 You can find help documentation [here](https://github.com/Deformable-Toolkit/dtk/blob/TOMbranch/doc/html/index.html).
-
-The docmentation's index.html is shown below.
-![index](https://cdn.jsdelivr.net/gh/TOMsworkspace/TOMsworkspace.github.io/2021/08/06/Doxygen自动生成文档/doc.png)
