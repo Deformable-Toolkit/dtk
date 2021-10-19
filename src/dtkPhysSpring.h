@@ -15,6 +15,7 @@ namespace dtk
 		dtkPhysMassPoint* GetFirstVertex() { return mVerteces[0]; }
 		dtkPhysMassPoint* GetSecondVertex() { return mVerteces[1]; }
 
+		//更新力到质点,迭代更新
 		bool Update(double timeslice, ItrMethod method = Euler, dtkID iteration = 0, bool limitDeformation = false);
         void SetStiffness(double newStiffness) { mStiffness = newStiffness; } 
         void SetDamp(double newDamp) { mDamp = newDamp; }
@@ -26,11 +27,11 @@ namespace dtk
 		virtual ~dtkPhysSpring();
 
 	private:
-		dtkPhysMassPoint* mVerteces[2];
+		dtkPhysMassPoint* mVerteces[2]; /**< 弹簧两个质点 */
 
-		double mOriLength;
-		double mStiffness;
-		double mDamp;
+		double mOriLength; /**< 长度 */
+		double mStiffness;  /**< 刚度 */
+		double mDamp; /**<  阻尼 */
 
 	};
 }

@@ -9,10 +9,17 @@
 
 #define DTK_BLAS_MKL
 
-//#define DTK_CUDA	//Comment this line if you don't want to use CUDA.
+//Comment this line if you don't want to use CUDA.
+//#define DTK_CUDA	
+
 #define DTK_CGAL
+
 //#define DTK_TBB
+
 //#define DTK_CL
+
+//Comment this line if you don't want to use CUDA.
+#define DTK_GLM
 
 #include <limits>
 

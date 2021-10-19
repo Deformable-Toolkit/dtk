@@ -19,7 +19,7 @@
 namespace dtk
 {
 	class dtkPhysKnotPlanner : public boost::noncopyable
-	{
+	{//结
 	public:
 		typedef std::shared_ptr< dtkPhysKnotPlanner > Ptr;
 
@@ -29,6 +29,7 @@ namespace dtk
 
 		void DoKnotFormation();
 
+		//更新朝向
 		void UpdateKnotOrientations();
 
 		void UpdateKnot(double timeslice);
@@ -75,17 +76,17 @@ namespace dtk
 
 		bool mDoKnotPlanning;
 		
-		std::vector< dtkID2 > mKnots;
-		dtkID mNumberOfFormatedKnots;
-		std::vector< dtkID > mSegmentInKnots;
-		std::vector< dtkDouble3 > mKnotCenterPoints;
-		std::vector< double > mPointOnSegmentPercents;
-		std::vector< dtkDouble3 > mKnotOrientations;
-		std::vector< bool > mSegmentInKnotOrientations;
-		std::vector< dtkInterval<int> > mAvoidIntervals;
+		std::vector< dtkID2 > mKnots; //结
+		dtkID mNumberOfFormatedKnots; 
+		std::vector< dtkID > mSegmentInKnots; //线段数
+		std::vector< dtkDouble3 > mKnotCenterPoints; //中心点
+		std::vector< double > mPointOnSegmentPercents; //线段细分
+		std::vector< dtkDouble3 > mKnotOrientations; //朝向
+		std::vector< bool > mSegmentInKnotOrientations; //段的朝向
+		std::vector< dtkInterval<int> > mAvoidIntervals; //间隔
 		
 	public:
-		dtkPhysMassSpringThread::Ptr mSutureThread;
+		dtkPhysMassSpringThread::Ptr mSutureThread; //缝合线
 	};
 }
 #endif

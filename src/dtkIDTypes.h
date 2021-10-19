@@ -7,9 +7,12 @@
 #include <iostream>
 
 namespace dtk
-{
-	//note that the dtkID must be a 32-bit unsigned-int.
-	//The Array-Based Mesh Data Structure depends on this feacture.
+{	
+	/**
+	 * @brief ID
+	 * @note note that the dtkID must be a 32-bit unsigned-int.
+	 * The Array-Based Mesh Data Structure depends on this feacture.
+	*/
 	typedef dtkWORD dtkID;
 	
 	const dtkID dtkErrorID = 0xFFFFFFFF;

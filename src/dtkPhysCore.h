@@ -32,19 +32,22 @@ namespace dtk
 	public:
 		enum CollisionHierarchyType
 		{
-			SURFACE = 0,
-			THREAD,
-			INTERIOR,
-			THREADHEAD
+			SURFACE = 0,  // 面 
+			THREAD, //  线
+			INTERIOR, // 内部
+			THREADHEAD // 线头
 		};
 		enum CollisionResponseType
 		{
-			NORMAL = 0,
-			KNOTPLANNING,
-			THREAD_SURFACE,
-			INTERIOR_THREADHEAD
+			NORMAL = 0, //
+ 			KNOTPLANNING, 
+			THREAD_SURFACE, /**< 线与面 */
+ 			INTERIOR_THREADHEAD /**< 内部与线头 */
 		};
 
+		/**
+		 * @brief 碰撞响应集
+		 */ 
 		typedef struct  
 		{
 			dtkCollisionDetectStage::HierarchyPair hierarchy_pair;
@@ -54,8 +57,11 @@ namespace dtk
 			void* pContext;
 			CollisionResponseType responseType;
 
-		} CollisionResponseSet;
+		} CollisionResponseSet;  
 
+		/**
+		 * @brief 障碍集
+		 */ 
 		typedef struct  
 		{
 			dtkPoints::Ptr pts;
@@ -64,8 +70,11 @@ namespace dtk
 			double viscosityCoef;
 			void (*custom_handle)( const std::vector<dtkIntersectTest::IntersectResult::Ptr>& intersectResults, void* pContext );
 			void* pContext;
-		} ObstacleSet;
+		} ObstacleSet; //障碍集
 
+		/**
+		 * @brief 固定点集
+		 */ 
 		typedef struct  
 		{
 			dtkID dominate_ID;
@@ -79,7 +88,7 @@ namespace dtk
 			dtkID slave_p;
 
 			double slave_ratio;
-		} AdherePointSet;
+		} AdherePointSet; //固定点集
 
 	public:
 		typedef std::shared_ptr< dtkPhysCore > Ptr;
@@ -92,21 +101,65 @@ namespace dtk
 	public:
 		~dtkPhysCore();
 
+		/**
+		* @brief		碰撞检测树更新，力更新，包围盒更新，点更新
+		* @param[in]	timeslice : 更新时间间隔
+		* @note	 碰撞检测树更新，力更新，包围盒更新，点更新
+		*/					
         void Update( double timeslice );
 
+		/**
+		* @brief 新建更新多线程
+		* @param[in]	n : 更新线程数
+		* @note	 新建更新多线程
+		*/
 		void SetNumberOfThreads( size_t n );
 
+		/**
+		* @brief 从文件获取点集新建弹簧图元
+		* @param[in]	filename : 输入文件名
+		* @param[in]	id       : 图元id
+		* @param[in]	point_mass       : 点的质量
+		* @param[in]	stiffness       : 弹簧弹性系数
+		* @param[in]	damp       : 弹簧阻尼
+		* @param[in]	pointDamp       : 点阻尼
+		* @param[in]	pointResistence : 点阻力系数
+		* @param[in]	gravityAccel       : 重力加速度
+		* @param[in]	specialExtend       : 碰撞检测间隔
+		* @note	 从文件获取点集新建弹簧图元
+		*/
 		void CreateMassSpring( const char* filename, dtkID id, double point_mass, double stiffness, double damp, double pointDamp, double pointResistence, dtkDouble3 gravityAccel, double specialExtend );
-
 		void DestroyMassSpring( dtkID id );
 
+		/**
+		* @brief 从文件获取点集新建三角网格图元
+		* @param[in]	filename : 输入文件名
+		* @param[in]	id       : 图元id
+		* @param[in]	point_mass       : 点的质量
+		* @param[in]	stiffness       : 弹簧弹性系数
+		* @param[in]	damp       : 弹簧阻尼
+		* @param[in]	pointDamp       : 点阻尼
+		* @param[in]	pointResistence : 点阻力系数
+		* @param[in]	gravityAccel       : 重力加速度
+		* @note	 从文件获取点集新建弹簧图元
+		*/
 		void CreateTriangleMassSpring( const char* filename, dtkID id, double point_mass, double stiffness, double damp, double pointDamp, double pointResistence, dtkDouble3 gravityAccel );
-
 		void DestroyTriangleMassSpring( dtkID id );
 
+		/**
+		* @brief 从文件新建四面体网格图元
+		* @param[in]	filename : 输入文件名
+		* @param[in]	id       : 图元id
+		* @param[in]	point_mass       : 点的质量
+		* @param[in]	stiffness       : 弹簧弹性系数
+		* @param[in]	damp       : 弹簧阻尼
+		* @param[in]	pointDamp       : 点阻尼
+		* @param[in]	pointResistence : 点阻力系数
+		* @param[in]	gravityAccel       : 重力加速度
+		* @note	 从文件获取点集新建弹簧图元
+		*/
 		void CreateTetraMassSpring( const char* filename, dtkID id, double point_mass, double stiffness, double damp, double pointDamp, double pointResistence, dtkDouble3 gravityAccel, /*bool surface = true,*/
 			dtkStaticMeshEliminator::MeshEliminatorResultsCallback callback = 0, void* pContext = 0 );// tetraMassSpringType: 1 for surface, 2 for body, 3 for all
-
 		void DestroyTetraMassSpring( dtkID id );
 
 		void CreateSutureThread( dtkID id, double length, dtkDouble3 firstPointPos, 
@@ -125,14 +178,27 @@ namespace dtk
 
 		void DestroyCollisionResponse( dtkID object1_id, CollisionHierarchyType obj1_type, dtkID object2_id, CollisionHierarchyType obj2_type );
 
-		size_t ConnectMassSpring( dtkID object1_id, dtkID object2_id, double range );
 
+		/**
+		* @brief 链接弹簧
+		* @param[in]	object1_id  : 对象id1
+		* @param[in]	object2_id  ：对象id2
+		* @param[in]	range       : 距离范围
+		* @return		
+		*	在range范围内连接的弹簧数 \n
+		* @note	 链接弹簧
+		*/
+		size_t ConnectMassSpring( dtkID object1_id, dtkID object2_id, double range );
 		void DisconnectMassSpring( dtkID object1_id, dtkID object2_id );
 
 		size_t AdhereMassSpring( dtkID from_id, dtkID to_id, double range );
 
 		void AdjustAdhereStatus();
 
+		/**
+		* @brief 断开所有弹簧	
+		* @note	 断开所有弹簧	
+		*/
 		void DetachAllMassSpring();
 
 		dtkPhysMassSpring::Ptr GetMassSpring( dtkID id );
@@ -151,15 +217,13 @@ namespace dtk
 
 		dtkPhysKnotPlanner::Ptr GetKnotPlanner( dtkID plannerID );
 
+		//自定义检测
 		dtkPoints::Ptr CreateCustomDetectTriangleArea( dtkID id, double half_width );
-
 		void DestroyCustomDetectTriangleArea( dtkID id );
-
 		void ExecuteCustomDetectTriangleArea( dtkID id, dtkID targetID, 
 			void (*custom_handle)( const std::vector<dtkIntersectTest::IntersectResult::Ptr>& intersectResults, void* pContext ), void* pContext = 0 );
 
 		dtkPhysParticleSystem::Ptr CreateParticleSystem( dtkID id, double particleRadius, double particleMass, double particleLifetime );
-
 		void DestroyParticleSystem( dtkID id );
 
 		void CreateObstacleForParticleSystem( dtkID particlesystem_id, dtkID object_id, double viscosityCoef, 
@@ -207,9 +271,9 @@ namespace dtk
 		std::map< dtkID, dtkPhysMassSpringThread::Ptr > mSutureThreads;
 
 		// Response
-		std::map< dtkID, CollisionResponseSet > mCollisionDetectResponseSets;
-		std::map< dtkID, CollisionResponseSet > mInternalCollisionDetectResponseSets;
-		std::map< dtkID, ObstacleSet > mObstacleSets;
+		std::map< dtkID, CollisionResponseSet > mCollisionDetectResponseSets; /**< 碰撞响应集 */
+		std::map< dtkID, CollisionResponseSet > mInternalCollisionDetectResponseSets; /**< 内部碰撞响应集 */
+		std::map< dtkID, ObstacleSet > mObstacleSets; /**< 障碍集 */
 
 		//Knot Planners
 		std::map< dtkID, dtkPhysKnotPlanner::Ptr> mKnotPlanners;
@@ -233,31 +297,31 @@ namespace dtk
 		std::map< dtkID, dtkPhysParticleSystem::Ptr > mParticleSystems;
 
 		// Eliminator
-		dtkStaticMeshEliminator::Ptr mStaticMeshEliminator;
+		dtkStaticMeshEliminator::Ptr mStaticMeshEliminator;  
 
 		// Device
 		std::map< dtkID, std::vector< dtkID > >  mDeviceLabels;
 		std::map< dtkID, dtkT3<double> > mDeviceForceFeedbacks;
 
-		double mClothDepth;
+		double mClothDepth; /**< 碰撞检测间隔 */
 
 	public:
-		size_t mNumberOfThreads;
+		size_t mNumberOfThreads; /**< 构建多线程数 */
 
-		bool mLive;
+		bool mLive;  /**< 核是否存活， 析构时置0,杀死循环检测更新线程 */
 
-		double mTimeslice;
+		double mTimeslice; /**< 更新的时间间隔 */
 
 		boost::thread_group* mThreadGroup;
 		boost::barrier* mEnterBarrier;
 		boost::barrier* mExitBarrier;
 
 		// Allocator
-		std::vector< std::vector< std::vector< dtkID > > > mAllocator;
-		dtkID mAllocatePosMassSpring;
-		dtkID mAllocatePosPrimitive;
-		dtkID mAllocatePosCollisionDetect;
-		dtkID mAllocatePosInternalCollisionDetect;
+		std::vector< std::vector< std::vector< dtkID > > > mAllocator; /**< different id group to different threads */
+		dtkID mAllocatePosMassSpring; /**< 已分配质量弹簧ID的范围 */
+		dtkID mAllocatePosPrimitive; /**< 已分配图元ID的范围 */
+		dtkID mAllocatePosCollisionDetect; /** 已分配碰撞检测的ID的范围 */
+		dtkID mAllocatePosInternalCollisionDetect; /**< 已分配内部碰撞检测的ID范围 */
 	};
 }
 

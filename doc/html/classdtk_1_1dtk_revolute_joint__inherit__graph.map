@@ -1,0 +1,4 @@
+<map id="dtk::dtkRevoluteJoint" name="dtk::dtkRevoluteJoint">
+<area shape="rect" id="node1" title="连接刚体的旋转关节" alt="" coords="5,80,148,107"/>
+<area shape="rect" id="node2" href="$classdtk_1_1dtk_joint.html" title="刚体的关节" alt="" coords="30,5,123,32"/>
+</map>

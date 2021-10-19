@@ -24,38 +24,58 @@
  * dtkErrorManager
  * - standard error reporter
  *
- * \subsection beforcg Base Elements For Computer Graphics
+ * \subsection beforcg 2. Base Elements For Computer Graphics
  * dtkIDx 
  * - identifier used for vertex, cell, etc.
+ * - define struct dtkID2 dtkID3 dtkID4
  *
  * dtkTx
- * - vector of any type
+ * - different length vector of any type
+ * - define struct dtkT2 dtkt3 dtkt4
  *
  * dtkPoints (dtkPointsVector)
- * - points container, used in many graphical element in DTK,
- *   such as Mesh, Graph
+ * - points container, used in many graphical element in DTK, such as Mesh, Graph
+ * dtkPointsReader
+ * dtkPointsWriter
+ * - points I/O from file.
  * 
  * dtkVolumn
- * dtkBinaryImage3D
+ * - dtkBinaryImage3D(not implement)
  * - encapsule image data source
  *
  * dtkGraph
+ * dtkGraphicsKernel
+ * - 2D/3D graph data fomat
+ * dtkGraphicsTools
+ * dtkIntersectTest
+ * - 2D/3D graph intersect check algorithm
  *
  * dtkStaticTetraMesh
- *
+ * - Tetra mesh data structer
+ * dtkStaticTetraMeshReader
+ * dtkStaticTetraMeshWriter
+ * - Terta mesh I/O from file
+ * 
  * dtkStaticTriangleMesh
+ * - Triangle mesh data structer
+ * dtkStaticTriangleMeshReader
+ * dtkStaticTriangleMeshWriter
+ * - Triabgle mesh I/O from file
+ * 
+ * dtkStaticMeshEliminator
+ * - designed for Mesh eliminator
+ * 
+ * \subsection aeforcg 3.  Advanced Elements For Computer Graphics
+ * dtkCenterLineMeshing(not implement)
  *
- * \subsection aeforcg Advanced Elements For Computer Graphics
- * dtkCenterLineMeshing
- *
- * dtkCVTMeshing
+ * dtkCVTMeshing(not implement)
  * - an implement of CVT Meshing which can tranform dtkBinaryImage3D
  *   to dtkStaticTetraMesh
  *
- * dtkDelaunay3D
+ * dtkDelaunay3D(not implement)
  * - an implement of Delaunay algrithm in 3D.
  *
- * dtkPNTriangles
+ * dtkPNTriangles(not implement)
  *
  * \section part2_sec Part 2 Finite Element Method
  * FEM can calculate the stress and displace for nodes in your mesh.
@@ -207,7 +227,7 @@
 //#include "dtkCenterLineMeshing.h"
 
 //Scene
-//#include "dtkScene.h"
+#include "dtkScene.h"
 //#include "dtkMassSpringSimulator.h"
 //#include "dtkRigidBodySimulator.h"
 //#include "dtkMassSpringDataSourceBasic.h"
@@ -230,7 +250,10 @@
 #include "dtkIO.h"
 
 //FEM
-//#include "dtkFEM.h"
+//#include "dtkFEMSolver.h"
+
+//SPH
+//#include "dtkSPHSolver.h"
 
 #include "dtkInit.h"
 

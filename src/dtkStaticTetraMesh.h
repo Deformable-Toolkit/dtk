@@ -15,6 +15,12 @@
 namespace dtk
 {
 	//This class is implemented following "Compact Array-Based Mesh Data Structures"
+	/**
+	* @class <dtkStaticTetraMesh> 
+	* @brief 四面体网格
+	* @author <>
+	* @note This class is implemented following "Compact Array-Based Mesh Data Structures"
+	*/
 	class dtkStaticTetraMesh: public boost::noncopyable
 	{
 	public:
@@ -64,7 +70,7 @@ namespace dtk
 
         static bool IsValidTetra(dtkID4 verts, dtkPoints::Ptr pts);
         dtkID4 GetTetraById(int id);
-        int GetTetraNum() { return mEC.size(); }
+        int GetTetraNum() { return (int)mEC.size(); }
 
         bool GetSurface(dtkStaticTriangleMesh::Ptr&);
 
@@ -291,7 +297,7 @@ namespace dtk
 			ahf2 = EncodeAHF(cell2, idx2, anchor2);
 		}
 
-		const static dtkID	EA2V[4][3];
+		const static dtkID	EA2V[4][3];  /**<< 四面体里的每个三角形 */
 		const static dtkID	EAdj[4][3];
 
 	private:

@@ -117,6 +117,26 @@ namespace dtk
 	}
 
 	template <class T>
+	inline dtkT2<T> normalize(const dtkT2<T> &v)
+	{
+		T m = sqrt(dot(v, v));
+	//	if (m <= 0)
+		if (!(m>0))
+			assert(m>0);
+		return dtkT2<T>( v.x/m, v.y/m);
+	}
+
+	template <class T>
+	inline dtkT3<T> normalize(const dtkT3<T> &v)
+	{
+		T m = sqrt(dot(v, v));
+	//	if (m <= 0)
+		if (!(m>0))
+			assert(m>0);
+		return dtkT3<T>( v.x/m, v.y/m, v.z/m);
+	}
+
+	template <class T>
 	inline dtkT4<T> normalize(const dtkT4<T> &v)
 	{
 		T m = sqrt(dot(v, v));
@@ -124,6 +144,18 @@ namespace dtk
 		if (!(m>0))
 			assert(m>0);
 		return dtkT4<T>( v.x/m, v.y/m, v.z/m, v.w/m);
+	}
+
+	template <class T>
+	inline T length(const dtkT2<T> &v)
+	{
+		return sqrt(dot(v, v));
+	}
+
+	template <class T>
+	inline T length(const dtkT3<T> &v)
+	{
+		return sqrt(dot(v, v));
 	}
 
 	template <class T>
@@ -151,6 +183,18 @@ namespace dtk
 	}
 
 	template <class T>
+	inline dtkT2<T> cross(const T lhs, const dtkT2<T>& rhs)
+	{
+		return lhs * dtkT2<T>(-rhs.y, rhs.x);
+	}
+
+	template <class T>
+	inline T cross(const dtkT2<T>& lhs, const dtkT2<T>& rhs)
+	{
+		return lhs.x * rhs.y - rhs.x * lhs.y;
+	}
+
+	template <class T>
 	inline dtkT3<T> cross(const dtkT3<T>& lhs, const dtkT3<T>& rhs)
 	{
 		dtkT3<T> retVal;
@@ -163,12 +207,12 @@ namespace dtk
 	}
 
 	template <class T>
-	inline dtkT3<T> normalize(const dtkT3<T> &v)
+	inline dtkT2<T> normal(const dtkT2<T> &v)
 	{
-		T m = sqrt(dot(v, v));
-		assert(m>0);
-		return dtkT3<T>( v.x/m, v.y/m, v.z/m);
+		dtkT2<T> res(v.y, -v.x);
+		return normalize(res);
 	}
+
 
 	template <class T>
 	inline dtkT3<T> operator-(const dtkT3<T> &v)
@@ -176,11 +220,6 @@ namespace dtk
 		return dtkT3<T>(-v.x, -v.y, -v.z);
 	}
 
-	template <class T>
-	inline T length(const dtkT3<T> &v)
-	{
-		return sqrt(dot(v, v));
-	}
         
     template <class T>
     inline dtkT3<T> barycentricWeight(const dtkT3<T> &p0, const dtkT3<T> &p1, const dtkT3<T> &p2, const dtkT3<T> &p3)

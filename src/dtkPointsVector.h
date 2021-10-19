@@ -112,6 +112,7 @@ namespace dtk
 	private:
 		std::vector<GK::Point3> mCoords;
 
+		//MCurPos's value is modified all the time, even in a const member function.
 		mutable size_t mCurPos;
 	};
 }

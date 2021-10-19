@@ -18,7 +18,7 @@ namespace dtk
         dtkCollisionDetectHierarchy::Ptr hierarchy = mCollisionDetectHierarchies[id];
 		dtkPhysTetraMassSpring::Ptr tetraMassSpring = mTetraMassSprings[id];
 
-		//¼ÇÂ¼Ô­À´ÓĞ¶àÉÙÃæ£¬ÓÃÀ´ÅĞ¶ÏÄÄĞ©ÃæÊÇ±íÃæÉÏµÄ¡£
+		//è®°å½•åŸæ¥æœ‰å¤šå°‘é¢ï¼Œç”¨æ¥åˆ¤æ–­å“ªäº›é¢æ˜¯è¡¨é¢ä¸Šçš„ã€‚
 		size_t faceNum = trimesh->GetECTable().size();
 
 		if( singleMethod )
@@ -108,7 +108,7 @@ namespace dtk
 		}
 		else
 		{
-			//¶ÔcollisionFaces½øĞĞÔ¤´¦Àí£¬Ê¹ÆäÁ½Á½Ö®¼ä²»°üº¬ÏàÍ¬µÄµã
+			//å¯¹collisionFacesè¿›è¡Œé¢„å¤„ç†ï¼Œä½¿å…¶ä¸¤ä¸¤ä¹‹é—´ä¸åŒ…å«ç›¸åŒçš„ç‚¹
 			for ( dtkID i = 0; i < collisionFaces.size() - 1; i++ )
 			{
 				for ( dtkID j = i + 1; j < collisionFaces.size(); j++ )
@@ -121,30 +121,30 @@ namespace dtk
 				}
 			}
 
-			//±éÀúÃ¿Ò»¸öcollisionFace
+			//éå†æ¯ä¸€ä¸ªcollisionFace
 			for ( dtkID i = 0; i < collisionFaces.size(); i++ )
 			{
-				//¼ÇÂ¼É¾µôÁËÄÄĞ©±íÃæÉÏµÄÃæ
+				//è®°å½•åˆ æ‰äº†å“ªäº›è¡¨é¢ä¸Šçš„é¢
 				std::vector<dtkID3> surfaceDeleteFaceI, surfaceAddFaceI;
-				//±éÀúÕâ¸öÃæÉÏµÄÈı¸öµã
+				//éå†è¿™ä¸ªé¢ä¸Šçš„ä¸‰ä¸ªç‚¹
 				for ( dtkID j = 0; j < 3; j++ )
 				{
-					//±éÀúÃ¿Ò»¸öËÄÃæÌå
+					//éå†æ¯ä¸€ä¸ªå››é¢ä½“
 					for ( dtkID k = 0; k < tetramesh->GetECTable().size(); k++ )
 					{
-						//Èç¹ûÕâ¸öËÄÃæÌåº¬ÓĞcollisionFaces[i]ÉÏµÄµã£¬Õâ¸öËÄÃæÌåÓ¦¸Ã±»É¾³ı£¬
-						//Õâ¸öËÄÃæÌå¶ÔÓ¦µÄËÄ¸öÃæ£¬Èç¹ûÔÚ±íÃæÉÏ£¬ÔòÉ¾³ı£¬Èç¹û²»ÔÚ±íÃæÉÏ£¬Ìí¼Óµ½±íÃæÉÏ¡£
-						//Åö×²¼ì²âÊ÷ÖĞÉ¾µô±íÃæÉ¾µôµÄÃæ£¬²¢ÔÚcollisionFaces[i]ÉÏÌí¼ÓĞÂµÄÃæ¡£
+						//å¦‚æœè¿™ä¸ªå››é¢ä½“å«æœ‰collisionFaces[i]ä¸Šçš„ç‚¹ï¼Œè¿™ä¸ªå››é¢ä½“åº”è¯¥è¢«åˆ é™¤ï¼Œ
+						//è¿™ä¸ªå››é¢ä½“å¯¹åº”çš„å››ä¸ªé¢ï¼Œå¦‚æœåœ¨è¡¨é¢ä¸Šï¼Œåˆ™åˆ é™¤ï¼Œå¦‚æœä¸åœ¨è¡¨é¢ä¸Šï¼Œæ·»åŠ åˆ°è¡¨é¢ä¸Šã€‚
+						//ç¢°æ’æ£€æµ‹æ ‘ä¸­åˆ æ‰è¡¨é¢åˆ æ‰çš„é¢ï¼Œå¹¶åœ¨collisionFaces[i]ä¸Šæ·»åŠ æ–°çš„é¢ã€‚
 						if( tetramesh->GetECTable()[k].a == collisionFaces[i][j] || 
 							tetramesh->GetECTable()[k].b == collisionFaces[i][j] || 
 							tetramesh->GetECTable()[k].c == collisionFaces[i][j] || 
 							tetramesh->GetECTable()[k].d == collisionFaces[i][j] )
 						{
-							bool findTriangle[4] = { false, false, false, false };//¼ÇÂ¼ËÄÃæÌåÉÏÄÄĞ©Ãæ±»ÕÒµ½ÁË£¬ÄÄĞ©Ã»ÓĞ±»ÕÒµ½¡£
+							bool findTriangle[4] = { false, false, false, false };//è®°å½•å››é¢ä½“ä¸Šå“ªäº›é¢è¢«æ‰¾åˆ°äº†ï¼Œå“ªäº›æ²¡æœ‰è¢«æ‰¾åˆ°ã€‚
 							dtkID4 deleteTetra = tetramesh->GetECTable()[k];
 							for ( dtkID m = 0; m < trimesh->GetECTable().size(); m++ )
 							{
-								//Èç¹ûÕÒµ½£¬ÔòÉ¾³ı¡£
+								//å¦‚æœæ‰¾åˆ°ï¼Œåˆ™åˆ é™¤ã€‚
 								if ( IsIdentical( dtkID3( deleteTetra.a, deleteTetra.c, deleteTetra.b ), trimesh->GetECTable()[m] ) == true )
 								{
 									findTriangle[0] = true;
@@ -183,7 +183,7 @@ namespace dtk
 								}
 							}
 
-							//Èç¹ûÃ»ÕÒµ½£¬ÔòÌí¼Óµ½±íÃæ¡£
+							//å¦‚æœæ²¡æ‰¾åˆ°ï¼Œåˆ™æ·»åŠ åˆ°è¡¨é¢ã€‚
 							if ( findTriangle[0] == false )
 							{
 								trimesh->InsertTriangle( dtkID3( deleteTetra.a, deleteTetra.b, deleteTetra.c ) );
@@ -223,12 +223,12 @@ namespace dtk
 						}
 					}
 				}
-				//¸Ä±äÅö×²¼ì²âÊ÷
+				//æ”¹å˜ç¢°æ’æ£€æµ‹æ ‘
 				ChangeHierarchy( hierarchy, trimesh->GetPoints(), collisionFaces[i], surfaceAddFaceI, surfaceDeleteFaceI );
 			}
 		}
 
-        //surfaceAddFaceÊÇĞÂÌí¼ÓµÄ±íÃæ
+        //surfaceAddFaceæ˜¯æ–°æ·»åŠ çš„è¡¨é¢
         std::vector< dtkID3 > surfaceAddFace;
         for ( size_t i = faceNum; i < trimesh->GetECTable().size(); i++ )
         {
@@ -237,7 +237,7 @@ namespace dtk
 
         GroupModel(hierarchy);
 
-        //»Øµ÷º¯Êı
+        //å›è°ƒå‡½æ•°
         if ( mMeshEliminatorResultsCallback.find(id) != mMeshEliminatorResultsCallback.end() && mMeshEliminatorResultsCallback[id] != 0 )
         {
             ( mMeshEliminatorResultsCallback[id] )( id, originalFaceNum, surfaceAddFace, mMeshEliminatorResultsCallbackContext[id] );
@@ -246,7 +246,7 @@ namespace dtk
 
     void dtkStaticMeshEliminator::ChangeHierarchy( dtkCollisionDetectHierarchy::Ptr hierarchy, dtkPoints::Ptr pts, dtkID3 collisionFace, const std::vector<dtkID3>& addFace, const std::vector<dtkID3>& deleteFace )
     {
-        //ÕÒµ½collisionFace£¬°ÑaddFaceÌí¼Ó½øÈ¥¡£
+        //æ‰¾åˆ°collisionFaceï¼ŒæŠŠaddFaceæ·»åŠ è¿›å»ã€‚
         for ( dtkID i = 0; i < hierarchy->GetNumberOfNodes(); i++ )
         {
             dtkCollisionDetectNode* nodeTemp = hierarchy->GetNode( i );
@@ -269,7 +269,7 @@ namespace dtk
             }
         }
 
-        //É¾³ıdeleteFaceÖĞµÄÃæ¡£
+        //åˆ é™¤deleteFaceä¸­çš„é¢ã€‚
         for ( dtkID i = 0; i < hierarchy->GetNumberOfNodes(); i++ )
         {
             dtkCollisionDetectNode* nodeTemp = hierarchy->GetNode( i );

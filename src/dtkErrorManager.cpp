@@ -3,20 +3,24 @@
 #include "dtkAssert.h"
 
 namespace dtk
-{
+{	
+	
 	//---------------------------------------------
 	dtkErrorManager& dtkErrMgr = dtkErrorManager::GetInstance();
-
+	
 	dtkErrorManager dtkErrorManager::msErrorMgr;
+
 	//---------------------------------------------
 	dtkErrorManager::dtkErrorManager()
 	{
+		std::cout << "default constructor:"  << &msErrorMgr << std::endl; 
 		InitErrorStrings();
 	}
 	
 	//---------------------------------------------
 	dtkErrorManager& dtkErrorManager::GetInstance()
 	{
+		//std::cout << "IN class:"  << &msErrorMgr << std::endl; 
 		return msErrorMgr;
 	}
 

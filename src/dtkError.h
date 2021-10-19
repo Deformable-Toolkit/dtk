@@ -5,32 +5,36 @@
 
 namespace dtk
 {
+	/** dtkError */
 	enum dtkError
 	{
 		//NO_ERROR = 0,
-		NOT_ERROR = 0,
-		OUT_OF_RANGE,
-		ILLEGAL_ARGUMENT,
-		ILLEGAL_STATE,
-		OPERATION_FAILED,
-		MUST_BE_MANIFOLD_MESH,
-		DEGENERACY_TRIANGLE,
-		DEGENERACY_TETRA,
-		CANNOT_FIND_OBJECT,
-		NULL_POINTER,
-        EMPTY_DATASET,
-		DIVIDED_BY_ZERO,
-		CUDA_ERROR,
-		OUT_OF_MEMORY,
-		SOLUTION_ERROR,
-		CUDPP_SCAN_FAILED,
-		PROPERTY_WRONG_VALUETYPE,
-        LOGICAL_ERROR,
-        NOT_IMPLEMENTED,
-        SIZE_NOT_MATCH,
+		NOT_ERROR = 0, /**< not error. */
+		OUT_OF_RANGE, /**< index out of range. */
+		ILLEGAL_ARGUMENT, /**< argument is illegal. */
+		ILLEGAL_STATE, /**< state is illegal. */
+		OPERATION_FAILED, /**< operation failed. */
+		MUST_BE_MANIFOLD_MESH, /**< mush must be manifold mesh. */
+		DEGENERACY_TRIANGLE, /**< degeneracy triangle mesh. */
+		DEGENERACY_TETRA, /**< degeneracy tetra mesh. */
+		CANNOT_FIND_OBJECT, /**< object coan not find. */
+		NULL_POINTER, /**< null pointer. */
+        EMPTY_DATASET, /**< empty dataset. */
+		DIVIDED_BY_ZERO, /**< divided by zero. */
+		CUDA_ERROR, /**< CUDA error. */
+		OUT_OF_MEMORY, /**< out of memory. */
+		SOLUTION_ERROR, /**< solution error */
+		CUDPP_SCAN_FAILED, /**< CUDPP scan failed. */
+		PROPERTY_WRONG_VALUETYPE, /**< property wrong value type */
+        LOGICAL_ERROR, /**< logical error */
+        NOT_IMPLEMENTED, /**< not implemented. */
+        SIZE_NOT_MATCH, /**< size not match. */
 
-		//This enum must in the last entry. (for counting)
-		//Insert new error type before it.
+		/**
+		* @brief unknown error. 
+		* @note This enum must in the last entry. (for counting)
+		* Insert new error type before it.
+		*/
 		UNKNOW_ERROR
 	};
 }

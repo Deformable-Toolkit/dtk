@@ -8,21 +8,24 @@
 #include <algorithm>
 
 namespace dtk
-{
+{   
+    /**
+     * @brief K-Dops axises
+     */
     const GK::Vector3 preAxis_0( 1, 0, 0 );
     const GK::Vector3 preAxis_1( 0, 1, 0 );
-    const GK::Vector3 preAxis_2( 0, 0, 1 ); // 6-dops
+    const GK::Vector3 preAxis_2( 0, 0, 1 ); /**< 6-dops */
     const GK::Vector3 preAxis_3( 1, 1, 1 );
     const GK::Vector3 preAxis_4( -1, 1, 1 );
     const GK::Vector3 preAxis_5( 1, -1, 1 );
-    const GK::Vector3 preAxis_6( 1, 1, -1 ); // 14-dops
+    const GK::Vector3 preAxis_6( 1, 1, -1 ); /**< 14-dops */
     const GK::Vector3 preAxis_7( 0, 1, 1 );
-    const GK::Vector3 preAxis_8( 1, 0, 1 );
+    const GK::Vector3 preAxis_8( 1, 0, 1 ); /**< 18-dops */
     const GK::Vector3 preAxis_9( 1, 1, 0 );
     const GK::Vector3 preAxis_10( 0, 1, -1 );
     const GK::Vector3 preAxis_11( -1, 0, 1 );
-    const GK::Vector3 preAxis_12( 1, -1, 0 ); // 18-dops
-    // 26-dops
+    const GK::Vector3 preAxis_12( 1, -1, 0 ); /**< 26-dops */
+    
 
     const GK::Vector3 GK::KDOP::mPredefinedAxis[13] = {
         preAxis_0, preAxis_1, preAxis_2, 

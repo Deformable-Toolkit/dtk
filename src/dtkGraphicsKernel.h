@@ -6,15 +6,24 @@
 #include <CGAL/Exact_predicates_inexact_constructions_kernel.h>
 #include <CGAL/basic.h>
 #include <CGAL/Polyhedron_3.h>
+#include <CGAL/Simple_cartesian.h>
+#include <CGAL/Filtered_kernel.h>
 
 #include "dtkTx.h"
 #include "dtkSign.h"
 
 namespace dtk
-{
+{   
+    /**
+    * @class <dtkInterval>
+    * @brief 区间， 包括上限下限以及区间包含等操作
+    * @author 
+    * @note
+    * 区间， 包括上限下限以及区间包含等操作
+    */
     template < typename Float >
     class dtkInterval
-    {
+    { 
         public:
             /*
             typedef CGAL::Exact_predicates_inexact_constructions_kernel K;
@@ -115,6 +124,13 @@ namespace dtk
         return stream;
     }
 
+    /**
+    * @class <dtkDiscreteOrientationPolytope>
+    * @brief 碰撞检测多面体
+    * @author 
+    * @note
+    * 用于k-Dops碰撞检测算法。
+    */
     class dtkDiscreteOrientationPolytope
     {
         public:
@@ -175,33 +191,58 @@ namespace dtk
         typedef CGAL::Exact_predicates_inexact_constructions_kernel K;
 
         typedef K::FT                   Float;
-
+        
         typedef CGAL::Object            Object;
 
         typedef dtkInterval<Float>      Interval;
-        typedef dtkDiscreteOrientationPolytope  KDOP;
+        typedef dtkDiscreteOrientationPolytope  KDOP; /**< 碰撞检测多面体 */
 
         //2D objects
-        typedef CGAL::Point_2<K>        Point2;
-        typedef CGAL::Vector_2<K>       Vector2;
-        typedef CGAL::Segment_2<K>      Segment2;
-        typedef CGAL::Triangle_2<K>     Triangle2;
-        typedef CGAL::Circle_2<K>       Circle2;
+
+        /*
+        CGAL::Point_2
+        < 
+            CGAL::Filtered_kernel_adaptor//(Epick)
+            <
+                CGAL::Type_equality_wrapper
+                < 
+                    CGAL::Type_equality_wrapper//(Simple_cartesian)
+                    <
+                        CGAL::Cartesian_base_no_ref_count
+                        <
+                            double, 
+                            CGAL::Simple_cartesian<double> 
+                        >,
+                        CGAL::Simple_cartesian<double>
+                    >::Base<CGAL::Epick>::Type,   
+                    CGAL::Epick
+                >,
+                true
+            > 
+        > POINT2;
+        */
+
+        //2D objects
+        typedef CGAL::Point_2<K>        Point2;  /**< 二维点 */
+        typedef CGAL::Vector_2<K>       Vector2; /**< 二维向量 */
+        typedef CGAL::Segment_2<K>      Segment2; /**< 二维线段 */
+        typedef CGAL::Triangle_2<K>     Triangle2; /**< 三角形 */
+        typedef CGAL::Circle_2<K>       Circle2; /**< 圆 */
 
         //3D objects
-        typedef CGAL::Point_3<K>        Point3;
-        typedef CGAL::Vector_3<K>       Vector3;
-        typedef CGAL::Ray_3<K>          Ray3;
-        typedef CGAL::Line_3<K>         Line3;
-        typedef CGAL::Segment_3<K>      Segment3;
-        typedef CGAL::Plane_3<K>        Plane3;
-        typedef CGAL::Circle_3<K>       Circle3;
-        typedef CGAL::Sphere_3<K>       Sphere3;
-        typedef CGAL::Triangle_3<K>     Triangle3;
-        typedef CGAL::Tetrahedron_3<K>  Tetrahedron3;
-        typedef CGAL::Bbox_3            BBox3;
+        typedef CGAL::Point_3<K>        Point3;  /**< 三维点 */
+        typedef CGAL::Vector_3<K>       Vector3; /**< 三维向量 */
+        typedef CGAL::Ray_3<K>          Ray3; /**< 三维射线 */
+        typedef CGAL::Line_3<K>         Line3; /**< 三维线 */
+        typedef CGAL::Segment_3<K>      Segment3; /**< 三维线段 */
+        typedef CGAL::Plane_3<K>        Plane3; /**< 三维平面 */
+        typedef CGAL::Circle_3<K>       Circle3; /**< 三维圆 */
+        typedef CGAL::Sphere_3<K>       Sphere3; /**< 三维球体 */
+        typedef CGAL::Triangle_3<K>     Triangle3; /**< 三维三角形 */
+        typedef CGAL::Tetrahedron_3<K>  Tetrahedron3; /**< 三维四面体 */
+        typedef CGAL::Bbox_3            BBox3; /**< 三维物体包围盒 */
 
-        typedef CGAL::Polyhedron_3<K>   Polyhedron3;
+        typedef CGAL::Polyhedron_3<K>   Polyhedron3; /**< 多面体曲面 */
 
 
     //basic operations.

@@ -9,8 +9,28 @@
 
 namespace dtk
 {
-	enum ItrMethod {Euler, Mid, RK4, Heun, Collision, Verlet};
+	// 迭代方法分别是 
+	//1.欧拉， （一阶）
+	//2.中点法， https://en.wikipedia.org/wiki/Midpoint_method （二阶）
+	//3.Runge-Kutta Families(RK4) （高阶）
+	//4. Heun https://zh.wikipedia.org/wiki/Heun%E6%96%B9%E6%B3%95 （二阶）
+	//5.
+	//6.Position-Based / Verlet Integration https://en.wikipedia.org/wiki/Verlet_integration （二阶）
+	enum ItrMethod {Euler,  /**< 欧拉 （一阶）*/
+					Mid, /**< 中点法， https://en.wikipedia.org/wiki/Midpoint_method （二阶）*/
+					RK4, /**< Runge-Kutta Families(RK4) （四阶）*/
+					Heun, /**< Heun https://zh.wikipedia.org/wiki/Heun%E6%96%B9%E6%B3%95 （二阶）*/
+					Collision, /**< */
+					Verlet /**< Position-Based / Verlet Integration https://en.wikipedia.org/wiki/Verlet_integration （二阶）*/
+					};
 
+	/**
+	* @class <dtkPhysMassPoint> 
+	* @brief 物理弹性质点
+	* @author <>
+	* @note
+	* 物理弹性质点
+	*/
 	class dtkPhysMassPoint
 	{
 	public:
@@ -19,7 +39,22 @@ namespace dtk
 	public:
 		virtual ~dtkPhysMassPoint();
 
+		/**
+		* @brief		更新质点位置，速度，加速度等
+		* @param[in]	times;ice : 时间间隔
+		* @param[in]	method : 迭代算法	
+		* @param[in]	iteration : 迭代次数
+		* @note	使用不同的算法迭代更新质点位置。
+		* @return		
+		*	true update successfully \n
+		*	false update failure \n
+		*/				
 		bool Update(double timeslice, ItrMethod method = Euler, dtkID iteration = 0);
+
+		/**
+		* @brief		传递冲量
+		* @note	根据冲量改变质点状态。
+		*/
 		void ApplyImpulse();
 		dtkT3<double> GetAndClearImpulse();
 
@@ -27,8 +62,18 @@ namespace dtk
 		dtkPoints::Ptr GetPoints() { return mPts; }
         dtkID GetPointID() { return mID; }
 		void SetPointID(dtkID id) {mID = id;}
+
+		//获取位置，用于更新
 		dtkT3<double> GetPosition(ItrMethod method = Euler, dtkID iteration = 0);
         dtkT3<double> GetLastFramePosition() { return mPosLastFrame; }
+
+		//更新位置
+		/**
+		* @brief		更新质点位置
+		* @param[in]	newPos : 新位置
+		* @param[in]	passToTwin : 更新邻居	
+		* @note twin是当前点有同步关系的点
+		*/				
 		void SetPosition(dtkT3<double> newPos, bool passToTwin = true ) 
 		{
 			mPts->SetPoint(this->mID,GK::Point3(newPos[0],newPos[1],newPos[2]));
@@ -41,6 +86,7 @@ namespace dtk
 			}
 		}
         void SetPosition(dtkT3<double> newPos, dtkID iteration);
+
 		dtkT3<double> GetVel(ItrMethod method = Euler, dtkID iteration = 0);
 		dtkT3<double> GetAccel(ItrMethod method = Euler, dtkID iteration = 0);
 
@@ -70,16 +116,20 @@ namespace dtk
 			}*/
 		}
 
+		//修改质量
 		void SetMass(const double& mass){ mMass = mass; }
 		const double& GetMass(){ return mMass; }
 
+		//修改阻力系数
 		void SetResistCoef(const double& resistCoef){ mResistCoef = resistCoef; }
 		const double& GetResistCoef(){ return mResistCoef; }
 
+		//恒力
 		void SetForceDecorator(const dtkT3<double>& fd){ mForceDecorator = fd; }
 		void AddForceDecorator(const dtkT3<double>& newFD) { mForceDecorator = mForceDecorator + newFD; }
 		const dtkT3<double>& GetForceDecorator(){ return mForceDecorator; }
 
+		//冲量
         void SetImpulse( const dtkT3<double>& impulse, bool passToTwin = true ) { 
             mImpulse = impulse;
 			if( mTwins.size() > 0 && passToTwin )
@@ -90,7 +140,6 @@ namespace dtk
 				}
 			}
         }
-
         void AddImpulse( const dtkT3<double>& newImpulse, bool passToTwin = true ) { 
             mImpulse = mImpulse + newImpulse; 
             mImpulseNum++;
@@ -124,9 +173,11 @@ namespace dtk
 		void SetCollide(bool newCollide) { mCollide = newCollide; }
 		bool GetCollide() { return mCollide; }
 
+		//点阻尼
 		void SetPointDamp(double newPointDamp) { mPointDamp = newPointDamp; }
 		double GetPointDamp() { return mPointDamp; }
 
+		//重力
 		void SetGravity( dtkT3<double> gravity ) { mGravity = gravity; }
         dtkT3<double> GetGravity() { return mGravity; }
 		
@@ -135,8 +186,8 @@ namespace dtk
         std::vector< dtkT3<double> > GetVelBuffer() { return mVelBuffers; }
         std::vector< dtkT3<double> > GetAccelBuffer() { return mAccelBuffers; }
 
-		std::vector< dtkT3<double> > mPosBuffers;
-        dtkT3<double> mImpulse;
+//		std::vector< dtkT3<double> > mPosBuffers;
+  //      dtkT3<double> mImpulse;
 
         void AddTwin( dtkPhysMassPoint* newTwin ) 
 		{ 
@@ -170,6 +221,7 @@ namespace dtk
 			mLabel = label; 
 		}
 
+		//停止
 		void ResetDynamicState()
 		{
 			mVel = 0;
@@ -187,26 +239,29 @@ namespace dtk
 		// the position at the last iteration.
 		dtkPoints::Ptr mPts;
 
-		dtkT3<double> mVel;
-		dtkT3<double> mAccel;
-		dtkT3<double> mForceAccum;
-		dtkT3<double> mGravity;
-        dtkT3<double> mResistance;
+		dtkT3<double> mVel;  /**< 质点速度 */
+		dtkT3<double> mAccel; /**< 质点加速度 */
+		dtkT3<double> mForceAccum; /**< 合外力 */
+		dtkT3<double> mGravity; /**< 重力 *//
+        dtkT3<double> mResistance; /**< 阻力 */
 
-        dtkT3<double> mPosLastFrame;
-		double mMass;
-        double mResistCoef;
-		double mPointDamp;
+		// the position at the last iteration.
+        dtkT3<double> mPosLastFrame; /**< 上一帧位置 */
+		double mMass;  /**< 质量 */
+        double mResistCoef; /**< 阻力系数 */
+		double mPointDamp; /**< 阻尼 */ 
 
 		std::vector< dtkT3<double> > mVelBuffers;
 		std::vector< dtkT3<double> > mAccelBuffers;
+		std::vector< dtkT3<double> > mPosBuffers;
 
-		dtkT3<double> mForceDecorator;	
+		dtkT3<double> mForceDecorator;	//已有力
 
-        size_t mImpulseNum;
-
-		bool mActive;
-		bool mCollide;
+        size_t mImpulseNum;  /**< 冲量数 */
+        dtkT3<double> mImpulse;/**< 冲量 */
+ 
+		bool mActive; /**< 质点是否活动，速度是否为零 */
+		bool mCollide; /**< 是否发生碰撞 */
 
 		dtkID mLabel;
 

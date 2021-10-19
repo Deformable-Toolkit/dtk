@@ -5,8 +5,21 @@
 #include <vector>
 #include <cassert>
 
+#ifdef DTK_GLM
+	#include <glm/glm.hpp>
+	#include <glm/gtc/matrix_transform.hpp>
+	#include <glm/gtc/type_ptr.hpp>
+#endif
+
 namespace dtk
 {
+	/**
+	* @class <dtkMatrix>
+	* @brief 矩阵
+	* @author <>
+	* @note
+	* 实现任意维的矩阵
+	*/
 	template<class T, class MatrixT=std::vector<T> >
 	struct dtkMatrix
 	{
@@ -281,6 +294,19 @@ namespace dtk
 	typedef dtkMatrix<unsigned short, std::vector<unsigned short> >         dtkMatrixUShort;
 	typedef dtkMatrix<char, std::vector<char> >                             dtkMatrixChar;
 	typedef dtkMatrix<unsigned char, std::vector<unsigned char> >           dtkMatrixUChar;
+
+#ifdef DTK_GLM
+	typedef glm::mat2x2 dtkMatrix22;
+	typedef glm::mat2x3 dtkMatrix23;
+	typedef glm::mat3x2 dtkMatrix32;
+	typedef glm::mat3x3 dtkMatrix33;
+	typedef glm::mat2x4 dtkMatrix24;
+	typedef glm::mat4x2 dtkMatrix42;
+	typedef glm::mat3x4 dtkMatrix34;
+	typedef glm::mat4x3 dtkMatrix43;
+	typedef glm::mat4x4 dtkMatrix44;
+#endif
+
 }
 
 #include "dtkMatrixOP.h"
