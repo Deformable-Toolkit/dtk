@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\PROJECTS\OpenSourceSummer2021\dtk\clang-build\CMakeFiles\3c3f882c8d3d481c09fa168ac38b8db1\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{E2705FC1-4769-32F7-824B-40476B92478C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

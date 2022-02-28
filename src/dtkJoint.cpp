@@ -32,8 +32,8 @@ namespace dtk {
 
     dtkRevoluteJoint::dtkRevoluteJoint(dtkRigidBody::ptr a, dtkRigidBody::ptr b, const dtkDouble2 &anchor)
         : dtkJoint(a, b), mAnchor(anchor) {
-        mLocalAnchorA = glm::transpose(2, 2, float, a->get_rotation()) * (mAnchor - a->local_to_world(a->get_centroid()));
-        mLocalAnchorB = glm::transpose(2, 2, float, b->get_rotation()) * (mAnchor - b->local_to_world(b->get_centroid()));
+        mLocalAnchorA = glm::transpose(a->get_rotation()) * (mAnchor - a->local_to_world(a->get_centroid()));
+        mLocalAnchorB = glm::transpose(b->get_rotation()) * (mAnchor - b->local_to_world(b->get_centroid()));
     }
 
     void dtkRevoluteJoint::pre_step(double dt) {
@@ -45,7 +45,8 @@ namespace dtk {
         dtkMatrix22 k = (a->get_inv_mass() + b->get_inv_mass()) * dtkMatrix22(1.0) +
                  a->get_inv_inertia() * dtkMatrix22(mRotateA.y*mRotateA.y, -mRotateA.y*mRotateA.x, -mRotateA.y*mRotateA.x, mRotateA.x*mRotateA.x) +
                  b->get_inv_inertia() * dtkMatrix22(mRotateB.y*mRotateB.y, -mRotateB.y*mRotateB.x, -mRotateB.y*mRotateB.x, mRotateB.x*mRotateB.x);
-        mMassAll = glm::inverse(2, 2, float, k);// get k.inverse();
+        //mMassAll = glm::inverse(2, 2, float, k);// get k.inverse();
+        mMassAll = glm::inverse(k);
         mBias = -kBiasFactor / dt *(b->local_to_world(b->get_centroid())
             + mRotateB - a->local_to_world(a->get_centroid()) - mRotateA);
         a->update_impulse(-mMomentum, mRotateA);

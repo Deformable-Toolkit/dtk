@@ -56,8 +56,10 @@ namespace dtk
         for(int i = 0;i < mTetraMesh->GetTetraNum();i++)
         {
             dtkID4 tempTetra = mTetraMesh->GetTetraById(i);
-            if(tempTetra[0] != dtkErrorID) //有效id, 有效四面体
+            if(tempTetra[0] != dtkErrorID) 
             {
+                //有效id, 有效四面体
+
                 dtkPhysMassPoint* massPoints[4];
                 dtkT3<double> positions[4];
                 dtkT3<double> vels[4];
@@ -134,8 +136,8 @@ namespace dtk
                     dtkT3<double> v_side_edge = positions[ tetra_order[j][3] ] - positions[ tetra_order[j][1] ];
                     dtkT3<double> n_area_unit = normalize( n_area[j] );
 
-                    double oriLength = mOriLengths[ i ][ j ]; //原本长度
-                    double curLength = dot( n_area_unit, v_side_edge); // 更新长度
+                    double oriLength = mOriLengths[ i ][ j ]; //原本长度 
+                    double curLength = dot( n_area_unit, v_side_edge); // 更新长度 
 
                     dtkT3<double> uvw = barycentricWeight( 
                             positions[ tetra_order[j][3] ], 
@@ -144,7 +146,7 @@ namespace dtk
                             positions[ tetra_order[j][2] ] );
                     if(uvw[0] > 0 && uvw[0] < 1 && uvw[1] > 0 && uvw[1] < 1 && uvw[2] > 0 && uvw[2] < 1)
                     {
-                        dtkT3<double> stiffForce = n_area_unit * ((oriLength - curLength) * mAltitudeStiff / oriLength ); //弹力
+                        dtkT3<double> stiffForce = n_area_unit * ((oriLength - curLength) * mAltitudeStiff / oriLength ); //弹力 
 						// compute the velocity of barycentric of tetra. 
                         dtkT3<double> vP = vels[ tetra_order[j][0] ] * uvw[0] 
                             + vels[ tetra_order[j][1] ] * uvw[1] 
@@ -156,7 +158,7 @@ namespace dtk
                         massPoints[ tetra_order[j][3] ]->AddForce(force);
                         massPoints[ tetra_order[j][0] ]->AddForce(force * ( (-1.0) * uvw[0]) );
                         massPoints[ tetra_order[j][1] ]->AddForce(force * ( (-1.0) * uvw[1]) );
-                        massPoints[ tetra_order[j][2] ]->AddForce(force * ( (-1.0) * uvw[2]) ); //力
+                        massPoints[ tetra_order[j][2] ]->AddForce(force * ( (-1.0) * uvw[2]) ); //力 
 #ifdef DTK_PHYSTETRAMASSSPRINGIMPL_DEBUG
                         //cout << "get altitude spring." << endl;
 						// compute the two mass position of spring  

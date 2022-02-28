@@ -34,6 +34,18 @@ Add the path to the Boost dlls (C:\dev\libboost_1_71_0\lib64-msvc-XX.Y) files to
 
 &emsp;&emsp;[How to build with Eigen](https://eigen.tuxfamily.org/dox/GettingStarted.html)
 
+### [GLM](https://eigen.tuxfamily.org/index.php?title=Main_Page)
+
+&emsp;(GLM) is a header only C++ mathematics library for graphics software based on the OpenGL Shading Language (GLSL) specifications.
+
+&emsp;GLM provides classes and functions designed and implemented with the same naming conventions and functionality than GLSL so that anyone who knows GLSL, can use GLM as well in C++.
+
+&emsp;This project isn't limited to GLSL features. An extension system, based on the GLSL extension conventions, provides extended capabilities: matrix transformations, quaternions, data packing, random numbers, noise, etc...
+
+&emsp;This library works perfectly with OpenGL but it also ensures interoperability with other third party libraries and SDK. It is a good candidate for software rendering (raytracing / rasterisation), image processing, physics simulations and any development context that requires a simple and convenient mathematics library.
+
+&emsp;&emsp;[How to build with glm](https://github.com/Groovounet/glm)
+
 ### [freeglut](http://freeglut.sourceforge.net)
 
 &emsp;Freeglut, the Free OpenGL Utility Toolkit, is meant to be a free alternative to Mark Kilgard's GLUT library. 

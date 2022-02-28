@@ -79,6 +79,7 @@ namespace dtk
         SplitRule();
 
         //检测划分是否成功。
+
         for( dtkID i = 0; i < GetNumOfChildren(); i++ )
         {
             if( mChildren[i]->GetNumOfPrimitives() < 1)
@@ -178,7 +179,9 @@ namespace dtk
         cout << "[dtkCollisionDetectNodeKDOPS::Update]" << endl;
 #endif
         if( mLeaf )
-        { //叶节点
+        { 
+            //叶节点
+
 #ifdef DTKCOLLISIONDETECTNODEKDOPS_DEBUG
             cout << "Encounter Leaf." << endl;
 #endif
@@ -194,7 +197,9 @@ namespace dtk
             }
             */
             for( dtkID k = 0; k < mKDOP.mHalfK; k++ )
-            {//包围盒每一维设置上下限
+            {
+                //包围盒每一维设置上下限
+                
                 mKDOP.mIntervals[k][0] = dtkDoubleMax;
                 mKDOP.mIntervals[k][1] = dtkDoubleMin;
             }
