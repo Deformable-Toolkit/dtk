@@ -36,6 +36,7 @@
 *.vs
 *.chm
 
+clang-build
 build
 build/
 
