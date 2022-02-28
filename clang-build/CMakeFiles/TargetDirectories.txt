@@ -1,5 +1,0 @@
-D:/PROJECTS/OpenSourceSummer2021/dtk/clang-build/CMakeFiles/INSTALL.dir
-D:/PROJECTS/OpenSourceSummer2021/dtk/clang-build/CMakeFiles/ALL_BUILD.dir
-D:/PROJECTS/OpenSourceSummer2021/dtk/clang-build/CMakeFiles/ZERO_CHECK.dir
-D:/PROJECTS/OpenSourceSummer2021/dtk/clang-build/src/CMakeFiles/dtk.dir
-D:/PROJECTS/OpenSourceSummer2021/dtk/clang-build/src/CMakeFiles/INSTALL.dir

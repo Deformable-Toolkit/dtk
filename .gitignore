@@ -37,6 +37,7 @@
 *.chm
 
 build
+clang-build
 build/
 
 install
