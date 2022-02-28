@@ -227,7 +227,7 @@ namespace dtk
 	}
 
 
-	// the total of impulse doesn't increase, just divide them into some mass point.
+	// the total of impulse doesn't increase, just divide them into some mass point. 
 	void dtkPhysMassSpringThread::ImpulsePropagate(dtkT3<double> impulse, dtkID pointID, dtkID opt, size_t range)
 	{
 		dtkDouble3 tempPos1, tempPos2, e, tempImpulse1, tempImpulse2, tempImpulseBuffer1, tempImpulseBuffer2;

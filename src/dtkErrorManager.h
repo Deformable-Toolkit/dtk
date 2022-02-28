@@ -7,6 +7,8 @@
 #include <string>
 #include <map>
 
+#include <iostream>
+
 #include <boost/utility.hpp>
 
 //DTK headers

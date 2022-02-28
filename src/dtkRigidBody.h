@@ -12,7 +12,7 @@
 #include <memory>
 
 #include "dtkTx.h"
-#include "dtkdtkGraphicsKernel.h"
+#include "dtkGraphicsKernel.h"
 #include "dtkIDTypes.h"
 #include "dtkMatrix.h"
 
@@ -52,7 +52,7 @@ namespace dtk {
 
         double get_inv_inertia() const;
 
-        const dtkDouble2 &getmCentroid() const;
+        const dtkDouble2 &get_centroid() const;
         void set_centroid(const dtkDouble2 &);
 
         const dtkDouble2 &get_position() const;
@@ -84,9 +84,9 @@ namespace dtk {
 
         dtkID mId; /**< id */
         double mMass; /**< 质量 */
-        double invMass; /**< 质量倒数（缓存，用于运算）*/
+        double invMass; /**< 质量倒数（缓存，用于运算） */
         double mInertia; /**< 转动惯量 */
-        double invInertia; /**< 转动惯性倒数（缓存，用于运算）*/
+        double invInertia; /**< 转动惯性倒数（缓存，用于运算） */
         dtkDouble2 mCentroid; /**< 重心 */
         dtkDouble2 mPosition; /**< 位置 */
         dtkMatrix22 mRotation; /**< 旋转矩阵 */

@@ -42,6 +42,8 @@ namespace dtk
 
 	typedef unsigned int 		dtkWORD;
 	typedef unsigned long long 	dtkDWORD;
+
+	const auto inf = std::numeric_limits<double>::infinity();
 };
 
 #endif //DTK_CONFIG_H

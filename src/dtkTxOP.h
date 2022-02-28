@@ -15,9 +15,21 @@ namespace dtk
 	}
 
 	template <class T>
+	inline void operator+=(dtkT2<T>& lhs, const dtkT2<T>& rhs)
+	{
+		lhs = lhs + rhs;
+	}
+
+	template <class T>
 	inline dtkT3<T> operator+(const dtkT3<T>& lhs, const dtkT3<T>& rhs)
 	{
 		return dtkT3<T>(lhs.x+rhs.x, lhs.y+rhs.y, lhs.z+rhs.z);
+	}
+
+	template <class T>
+	inline void operator+=(dtkT3<T>& lhs, const dtkT3<T>& rhs)
+	{
+		lhs = lhs + rhs;
 	}
 
 	template <class T>
@@ -27,9 +39,27 @@ namespace dtk
 	}
 
 	template <class T>
+	inline void operator+=(dtkT4<T>& lhs, const dtkT4<T>& rhs)
+	{
+		lhs = lhs + rhs;
+	}
+
+	template <class T>
 	inline dtkT2<T> operator-(const dtkT2<T>& lhs, const dtkT2<T>& rhs)
 	{
 		return dtkT2<T>(lhs.x-rhs.x, lhs.y-rhs.y);
+	}
+
+	template <class T>
+	inline dtkT2<T> operator-(const dtkT2<T>& lhs)
+	{
+		return dtkT2<T>(-lhs.x, -lhs.y);
+	}
+
+	template <class T>
+	inline void operator-=(dtkT2<T>& lhs, const dtkT2<T>& rhs)
+	{
+		lhs = lhs - rhs;
 	}
 
 	template <class T>
@@ -39,9 +69,33 @@ namespace dtk
 	}
 
 	template <class T>
+	inline dtkT3<T> operator-(const dtkT3<T>& lhs)
+	{
+		return dtkT3<T>(-lhs.x, -lhs.y, -lhs.z);
+	}
+
+	template <class T>
+	inline void operator-=(dtkT3<T>& lhs, const dtkT3<T>& rhs)
+	{
+		lhs = lhs - rhs;
+	}
+
+	template <class T>
 	inline dtkT4<T> operator-(const dtkT4<T>& lhs, const dtkT4<T>& rhs)
 	{
 		return dtkT4<T>(lhs.x-rhs.x, lhs.y-rhs.y, lhs.z-rhs.z, lhs.w-rhs.w);
+	}
+
+	template <class T>
+	inline dtkT4<T> operator-(const dtkT4<T>& lhs)
+	{
+		return dtkT4<T>(-lhs.x, -lhs.y, -lhs.y, -lhs.z);
+	}
+
+	template <class T>
+	inline void operator-=(dtkT4<T>& lhs, const dtkT4<T>& rhs)
+	{
+		lhs = lhs - rhs;
 	}
 
 	template <class T>
@@ -60,6 +114,12 @@ namespace dtk
 	inline dtkT2<T> operator*(const T& lhs, const dtkT2<T> &rhs)
 	{
 		return rhs * lhs;
+	}
+
+	template <class T>
+	inline dtkT2<T> operator/(const dtkT2<T>& lhs, const T &rhs)
+	{
+		return dtkT2<T>(lhs.x / rhs, lhs.y / rhs);
 	}
 
 	template <class T>
@@ -87,12 +147,6 @@ namespace dtk
 	}
 
 	template <class T>
-	inline dtkT4<T> operator/(const dtkT4<T>& lhs, const T& rhs)
-	{
-		return dtkT4<T>(lhs.x/rhs, lhs.y/rhs, lhs.z/rhs, lhs.w/rhs);
-	}
-
-	template <class T>
 	inline dtkT3<T> operator/(const dtkT3<T>& lhs, const dtkT3<T>& rhs)
 	{
 		return dtkT3<T>(lhs.x/rhs.x, lhs.y/rhs.y, lhs.z/rhs.z);
@@ -114,6 +168,12 @@ namespace dtk
 	inline dtkT4<T> operator*(const T& lhs, const dtkT4<T>& rhs)
 	{
 		return rhs * lhs;
+	}
+
+	template <class T>
+	inline dtkT4<T> operator/(const dtkT4<T>& lhs, const T &rhs)
+	{
+		return dtkT4<T>(lhs.x / rhs, lhs.y / rhs, lhs.z / rhs, lhs.w / rhs);
 	}
 
 	template <class T>
@@ -211,13 +271,6 @@ namespace dtk
 	{
 		dtkT2<T> res(v.y, -v.x);
 		return normalize(res);
-	}
-
-
-	template <class T>
-	inline dtkT3<T> operator-(const dtkT3<T> &v)
-	{
-		return dtkT3<T>(-v.x, -v.y, -v.z);
 	}
 
         

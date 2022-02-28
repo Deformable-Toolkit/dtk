@@ -45,6 +45,7 @@ namespace dtk
 		* @brief		k-Dops算法更新，更新轴向包围盒,更新图元状态
 		*/
         //更新图元包围盒
+        
         void Update();
 
     private:

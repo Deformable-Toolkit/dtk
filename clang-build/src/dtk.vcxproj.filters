@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtk.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkAssert.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkCollisionDetectBasic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkCollisionDetectHierarchy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkCollisionDetectHierarchyKDOPS.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkCollisionDetectNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkCollisionDetectNodeKDOPS.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkCollisionDetectPrimitive.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkCollisionDetectStage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkErrorManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkGraphicsKernel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkIntersectTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkJoint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkPhysCore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkPhysKnotPlanner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkPhysMassPoint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkPhysMassSpring.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkPhysMassSpringCollisionResponse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkPhysMassSpringThread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkPhysMassSpringThreadCollisionResponse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkPhysParticle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkPhysParticleSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkPhysSpring.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkPhysTetraMassSpring.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkPointsReader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkPointsWriter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkRigidBody.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkSign.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkStaticMeshEliminator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkStaticTetraMesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkStaticTetraMeshReader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkStaticTetraMeshWriter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkStaticTriangleMesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkStaticTriangleMeshReader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\dtkStaticTriangleMeshWriter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\PROJECTS\OpenSourceSummer2021\dtk\src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{5231BA6C-7B1C-3B05-A491-9A112C620B37}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

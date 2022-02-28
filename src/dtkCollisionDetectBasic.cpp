@@ -43,6 +43,7 @@ namespace dtk
 
 		// according primitives' vertex to make geometry object.
         // 根据图元的顶点来制作几何对象。
+
         const GK::Object& obj_1 = pri_1->GetObject();
         const GK::Object& obj_2 = pri_2->GetObject();
 
@@ -58,6 +59,7 @@ namespace dtk
             if( const GK::Triangle3* tri_2 = CGAL::object_cast< GK::Triangle3 >( &obj_2 ) )
             {
                 //两个三角形相交。 考虑间距或者不考虑。
+
                 if( ignore_extend || distance == 0 )
                     intersected = dtkIntersectTest::DoIntersect( *tri_1, *tri_2, result );
                 else
@@ -66,6 +68,7 @@ namespace dtk
             else if( const GK::Segment3* seg_2 = CGAL::object_cast< GK::Segment3 >( &obj_2 ) )
             {
                 //一个三角形与一个线段相交。 考虑间距或者不考虑。
+
                 if( ignore_extend || distance == 0 )
                     intersected = dtkIntersectTest::DoIntersect( *tri_1, *seg_2, result );
                 else
@@ -74,6 +77,7 @@ namespace dtk
 			else if( const GK::Sphere3* sphere = CGAL::object_cast< GK::Sphere3 >( &obj_2 ) )
 			{
                 //一个三角形与一个球相交。 考虑间距或者不考虑。
+
 				if( ignore_extend || distance == 0 )
 					assert( false ); //intersected = dtkIntersectTest::DoIntersect( *tri_1, *sphere, result );
 				else
@@ -84,7 +88,9 @@ namespace dtk
         {   
           
             if( const GK::Triangle3* tri_2 = CGAL::object_cast< GK::Triangle3 >( &obj_2 ) )
-            {  //一个三角形与一个线段相交。 考虑间距或者不考虑。
+            {  
+                //一个三角形与一个线段相交。 考虑间距或者不考虑。
+
                 exchanged = true;
                 if( ignore_extend || distance == 0 )
                     intersected = dtkIntersectTest::DoIntersect( *tri_2, *seg_1, result );
@@ -92,7 +98,9 @@ namespace dtk
                     intersected = dtkIntersectTest::DoDistanceIntersect( *tri_2, *seg_1, distance, result, pri_1->mInvert );
             }
             else if( const GK::Segment3* seg_2 = CGAL::object_cast< GK::Segment3 >( &obj_2 ) )
-            {  //两个线段相交。 考虑间距或者不考虑。
+            {  
+                //两个线段相交。 考虑间距或者不考虑。
+                
                 if( ignore_extend || distance == 0 )
                     intersected = dtkIntersectTest::DoIntersect( *seg_1, *seg_2, result );
                 else
