@@ -38,6 +38,7 @@
 
 clang-build
 build
+clang-build
 build/
 
 install
